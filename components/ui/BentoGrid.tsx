@@ -2,13 +2,15 @@
 
 import { cn } from "@/utils/cn";
 import { BackgroundGradientAnimation } from "./GradientBg";
-import { Globe } from "./Globe";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import animationData from '@/data/confetti.json';
-import Lottie from 'lottie-react';
 import { IoCopyOutline } from "react-icons/io5";
 import MagicButton from "./MagicButton";
-import { GlobeDemo } from "./GridGlobe";
+import dynamic from 'next/dynamic';
+
+// Dynamically import components that might use document/window
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
+const GlobeDemo = dynamic(() => import('./GridGlobe').then(mod => ({ default: mod.GlobeDemo })), { ssr: false });
 
 export const BentoGrid = ({
   className,
@@ -20,7 +22,6 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        // change gap-4 to gap-8, change grid-cols-3 to grid-cols-5, remove md:auto-rows-[18rem], add responsive code
         "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto",
         className
       )}
@@ -35,7 +36,6 @@ export const BentoGridItem = ({
   id,
   title,
   description,
-  //   remove unecessary things here
   img,
   imgClassName,
   titleClassName,
@@ -54,32 +54,38 @@ export const BentoGridItem = ({
   const rightLists = ["ReactJs", "NuxtJS", "MongoDB"];
 
   const [copied, setCopied] = useState(false);
+  const [isBrowser, setIsBrowser] = useState(false);
 
-  const defaultOptions = {
+  // Set isBrowser to true once component mounts on client
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
+
+  // Instead of creating options object, we'll pass these props directly to the Lottie component
+  const lottieProps = {
+    animationData: animationData,
     loop: copied,
     autoplay: copied,
-    animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
 
   const handleCopy = () => {
-    const text = "mauriciop1palma@gmail.com";
-    navigator.clipboard.writeText(text);
-    setCopied(true);
+    if (typeof navigator !== 'undefined') {
+      const text = "mauriciop1palma@gmail.com";
+      navigator.clipboard.writeText(text);
+      setCopied(true);
+    }
   };
 
   return (
     <div
       className={cn(
-        // remove p-4 rounded-3xl dark:bg-black dark:border-white/[0.2] bg-white  border border-transparent, add border border-white/[0.1] overflow-hidden relative
         "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
         className
       )}
       style={{
-        //   add these two
-        //   you can generate the color from here https://cssgradient.io/
         background: "rgb(4,7,29)",
         backgroundColor:
           "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
@@ -104,13 +110,11 @@ export const BentoGridItem = ({
             <img
               src={spareImg}
               alt={spareImg}
-              //   width={220}
               className="object-cover object-center w-full h-full"
             />
           )}
         </div>
         {id === 6 && (
-          // add background animation , remove the p tag
           <BackgroundGradientAnimation>
             <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
           </BackgroundGradientAnimation>
@@ -122,20 +126,17 @@ export const BentoGridItem = ({
             "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
           )}
         >
-          {/* change the order of the title and des, font-extralight, remove text-xs text-neutral-600 dark:text-neutral-300 , change the text-color */}
           <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
             {description}
           </div>
-          {/* add text-3xl max-w-96 , remove text-neutral-600 dark:text-neutral-300*/}
-          {/* remove mb-2 mt-2 */}
           <div
             className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
           >
             {title}
           </div>
 
-          {/* for the github 3d globe */}
-          {id === 2 && <GlobeDemo />}
+          {/* Only render client-side components when in browser environment */}
+          {id === 2 && isBrowser && <GlobeDemo />}
 
           {/* Tech stack list div */}
           {id === 3 && (
@@ -169,16 +170,11 @@ export const BentoGridItem = ({
           )}
           {id === 6 && (
             <div className="mt-5 relative">
-              {/* button border magic from tailwind css buttons  */}
-              {/* add rounded-md h-8 md:h-8, remove rounded-full */}
-              {/* remove focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 */}
-              {/* add handleCopy() for the copy the text */}
               <div
                 className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
                   }`}
               >
-                {/* <img src="/confetti.gif" alt="confetti" /> */}
-                <Lottie options={defaultOptions} height={200} width={400} />
+                {isBrowser && <Lottie {...lottieProps} height={200} width={200} />}
               </div>
 
               <MagicButton

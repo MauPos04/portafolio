@@ -21,7 +21,7 @@ export const RecentProjects = () => {
                   <img src="/bg.png" alt='bg-img' />
                 </div>
                 <img
-                  src='{img}'
+                  src={img}
                   alt={title}
                   className='z-10 absolute bottom-0' />
               </div>
