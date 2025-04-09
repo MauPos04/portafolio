@@ -49,7 +49,7 @@ export const navItems = [
   
     {
       id: 5,
-      title: "Currently building a JS Animation library",
+      title: "Currently learning new Deep Learning techniques",
       description: "The Inside Scoop",
       className: "md:col-span-3 md:row-span-2",
       imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -72,23 +72,23 @@ export const navItems = [
   export const projects = [
     {
       id: 1,
-      title: "Robotics Website",
-      des: "A website dedicated to showcasing robotics projects and innovations.",
-      img: "/p1.svg",
+      title: "Ditek Robotics Website",
+      des: "A website dedicated to showcasing robotics products and innovations.",
+      img: "/ditek_robotics.png",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
       link: "https://github.com/adrianhajdin?tab=repositories",
     },
     {
       id: 2,
-      title: "Yoom - Video Conferencing App",
-      des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-      img: "/p2.svg",
-      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+      title: "AI Engineer APPU Project",
+      des: "Developed a comprehensive data processing and reporting solution for a multi-location cafeteria management system. This project extracts transactional data from AWS DynamoDB, processes complex business rules, and generates detailed financial and operational reports for cafeteria management and accounting purposes. Additionally, implemented a sales projection model using XGBoost to forecast future demand and trends, and automated insightful report creation leveraging the OpenAI API for natural language summaries and executive-friendly outputs.",
+      img: "/APPU_IMAGE_up.png",
+      iconLists: ["/django_icon.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/tensorflow.svg"],
       link: "https://github.com/adrianhajdin/zoom-clone",
     },
     {
       id: 3,
-      title: "AI Image SaaS - Canva Application",
+      title: "Web Scrapping Goals Project",
       des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
       img: "/p3.svg",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
@@ -96,8 +96,8 @@ export const navItems = [
     },
     {
       id: 4,
-      title: "Animated Apple Iphone 3D Website",
-      des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
+      title: "Traslator and summariser after scrapping",
+      des: "A web app that scrapes data from websites and provides translation and summarization features.",
       img: "/p4.svg",
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
       link: "https://github.com/adrianhajdin/iphone",
