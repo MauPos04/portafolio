@@ -13,7 +13,7 @@ export const navItems = [
       className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
       imgClassName: "w-full h-full",
       titleClassName: "justify-end",
-      img: "/b1.svg",
+      img: "/XG_MAC.png",
       spareImg: "",
     },
     {
@@ -72,19 +72,19 @@ export const navItems = [
   export const projects = [
     {
       id: 1,
-      title: "Ditek Robotics Website",
+      title: "Ditek Robotics Static Website",
       des: "A website dedicated to showcasing robotics products and innovations.",
       img: "/ditek_robotics.png",
-      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-      link: "https://github.com/adrianhajdin?tab=repositories",
+      iconLists: ["/wordpress_icon.svg","/wpformsbg.png", "/elementor-icon.svg"],
+      link: "https://ditek.com.co/",
     },
     {
       id: 2,
       title: "AI Engineer APPU Project",
       des: "Developed a comprehensive data processing and reporting solution for a multi-location cafeteria management system. This project extracts transactional data from AWS DynamoDB, processes complex business rules, and generates detailed financial and operational reports for cafeteria management and accounting purposes. Additionally, implemented a sales projection model using XGBoost to forecast future demand and trends, and automated insightful report creation leveraging the OpenAI API for natural language summaries and executive-friendly outputs.",
       img: "/APPU_IMAGE_up.png",
-      iconLists: ["/django_icon.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/tensorflow.svg"],
-      link: "https://github.com/adrianhajdin/zoom-clone",
+      iconLists: ["/django_icon.svg", "/tail.svg", "/ts.svg", "/wordpress_icon.svg", "/tensorflow.svg"],
+      link: "https://appu.store/",
     },
     {
       id: 3,

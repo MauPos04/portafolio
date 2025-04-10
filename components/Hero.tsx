@@ -29,7 +29,7 @@ const Hero = () => {
           />
 
           <p className='text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl'>
-            Hi, I&apos;m Mauricio, a FullStack Developer And Data Scientist based in Colombia
+            Hi, I&apos;m Mauricio, an AI Engineer, FullStack Developer And Data Scientist based in Colombia
           </p>
           <a href='#about'>
             <MagicButton 
