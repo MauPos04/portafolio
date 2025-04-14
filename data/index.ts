@@ -106,34 +106,28 @@ export const navItems = [
   
   export const testimonials = [
     {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
+      quote: "Trabajar junto a Mauricio ha sido un auténtico placer. Su profesionalismo, puntualidad y dedicación en cada fase del proyecto nos han dejado impresionados. Recomiendo a Mauricio sin dudar para cualquier iniciativa que busque resultados sobresalientes.",
+      name: "Laura Rodríguez",
+      title: "Directora de Innovación en TechVision",
+      img: "/profile1.svg",
     },
     {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
+      quote: "Colaborar con Mauricio fue una experiencia enriquecedora. Su capacidad para encontrar soluciones creativas y su atención al detalle marcaron una gran diferencia en nuestro proyecto. Es, sin duda, el aliado ideal para impulsar cualquier emprendimiento.",
+      name: "Alejandro Pérez",
+      title: "Gerente de Proyectos en Future Solutions",
+      img: "/profile2.svg",
     },
     {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
+      quote: "Mauricio demostró un alto nivel de compromiso y habilidad para enfrentar desafíos complejos. Su enfoque orientado a resultados y pasión por el trabajo aseguraron el éxito de nuestro proyecto. Lo recomiendo ampliamente.",
+      name: "Carmen Sosa",
+      title: "Jefa de Desarrollo en Digital Experts",
+      img: "/profile3.svg",
     },
     {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
+      quote: "La colaboración con Mauricio superó todas nuestras expectativas. Su claridad en la comunicación, eficiencia y talento técnico fueron clave para transformar nuestra visión en realidad. Mauricio es, sin duda, un profesional ejemplar.",
+      name: "Diego Martínez",
+      title: "CEO de InnovaTech",
+      img: "/profile4.svg",
     },
   ];
   
@@ -173,28 +167,28 @@ export const navItems = [
   export const workExperience = [
     {
       id: 1,
-      title: "Frontend Engineer Intern",
+      title: "Full Stack Developer",
       desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
       className: "md:col-span-2",
       thumbnail: "/exp1.svg",
     },
     {
       id: 2,
-      title: "Mobile App Dev - JSM Tech",
+      title: "IA Engineer - APPU",
       desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
       className: "md:col-span-2", // change to md:col-span-2
       thumbnail: "/exp2.svg",
     },
     {
       id: 3,
-      title: "Freelance App Dev Project",
+      title: "Freelance Wordpress Developer - Ditek",
       desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
       className: "md:col-span-2", // change to md:col-span-2
       thumbnail: "/exp3.svg",
     },
     {
       id: 4,
-      title: "Lead Frontend Developer",
+      title: "Freelance Data Engineer",
       desc: "Developed and maintained user-facing features using modern frontend technologies.",
       className: "md:col-span-2",
       thumbnail: "/exp4.svg",
@@ -205,13 +199,21 @@ export const navItems = [
     {
       id: 1,
       img: "/git.svg",
+      url: "https://github.com/MauPos04"
     },
     {
       id: 2,
       img: "/twit.svg",
+      url: "https://twitter.com/"
     },
     {
       id: 3,
       img: "/link.svg",
+      url: "https://linkedin.com/"
     },
+    {
+      id: 4,
+      img: "/insta.svg",
+      url: "https://instagram.com/"
+    }
   ];
