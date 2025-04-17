@@ -106,90 +106,73 @@ export const navItems = [
   
   export const testimonials = [
     {
-      quote: "Trabajar junto a Mauricio ha sido un auténtico placer. Su profesionalismo, puntualidad y dedicación en cada fase del proyecto nos han dejado impresionados. Recomiendo a Mauricio sin dudar para cualquier iniciativa que busque resultados sobresalientes.",
-      name: "Laura Rodríguez",
-      title: "Directora de Innovación en TechVision",
-      img: "/profile1",
+      quote: "Working alongside Mauricio has been an absolute pleasure. His professionalism, punctuality, and dedication at every stage of the project left us thoroughly impressed. I wholeheartedly recommend Mauricio for any initiative seeking outstanding results.",
+      name: "Marlon Bernate",
+      title: "Ceo at Appu",
+      // img: "/profile1.svg",
     },
     {
-      quote: "Colaborar con Mauricio fue una experiencia enriquecedora. Su capacidad para encontrar soluciones creativas y su atención al detalle marcaron una gran diferencia en nuestro proyecto. Es, sin duda, el aliado ideal para impulsar cualquier emprendimiento.",
-      name: "Alejandro Pérez",
-      title: "Gerente de Proyectos en Future Solutions",
-      img: "/profile2.svg",
+      quote: "Collaborating with Mauricio was a truly enriching experience. His ability to find creative solutions and his attention to detail made a significant difference in our project. He is, without a doubt, the ideal partner to boost any venture.",
+      name: "Christian",
+      title: "Chief At ENKA termoelectric",
+      // img: "/profile2.svg",
     },
     {
-      quote: "Mauricio demostró un alto nivel de compromiso y habilidad para enfrentar desafíos complejos. Su enfoque orientado a resultados y pasión por el trabajo aseguraron el éxito de nuestro proyecto. Lo recomiendo ampliamente.",
-      name: "Carmen Sosa",
-      title: "Jefa de Desarrollo en Digital Experts",
-      img: "/profile3.svg",
+      quote: "Mauricio demonstrated a high level of commitment and the skill to tackle complex challenges. His results-driven approach and passion for the work ensured our project's success. I highly recommend him.",
+      name: "Camilo Diez",
+      title: "CEO at Ditek Robotics",
+      // img: "/profile3.svg",
     },
     {
-      quote: "La colaboración con Mauricio superó todas nuestras expectativas. Su claridad en la comunicación, eficiencia y talento técnico fueron clave para transformar nuestra visión en realidad. Mauricio es, sin duda, un profesional ejemplar.",
-      name: "Diego Martínez",
-      title: "CEO de InnovaTech",
-      img: "/profile4.svg",
+      quote: "Our collaboration with Mauricio exceeded all expectations. His clear communication, efficiency, and technical talent were key in transforming our vision into reality. Mauricio is, without a doubt, an exemplary professional.",
+      name: "Juan Gomez",
+      title: "Inplay Genius Sports Supervisor",
+      // img: "/profile4.svg",
     },
-  ];
+  ];  
   
   export const companies = [
+    
     {
       id: 1,
-      name: "cloudinary",
-      img: "/cloud.svg",
-      nameImg: "/cloudName.svg",
-    },
-    {
-      id: 2,
-      name: "appwrite",
-      img: "/app.svg",
-      nameImg: "/appName.svg",
-    },
-    {
-      id: 3,
       name: "HOSTINGER",
       img: "/host.svg",
       nameImg: "/hostName.svg",
     },
     {
-      id: 4,
-      name: "stream",
-      img: "/s.svg",
-      nameImg: "/streamName.svg",
-    },
-    {
-      id: 5,
+      id: 2,
       name: "docker.",
       img: "/dock.svg",
       nameImg: "/dockerName.svg",
-    },
+    }
   ];
   
-  export const workExperience = [
-    {
-      id: 1,
-      title: "Full Stack Developer",
-      desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
-      className: "md:col-span-2",
-      thumbnail: "/exp1.svg",
-    },
+export const workExperience = [
+  {
+    id: 1,
+    title: "IA Engineer - APPU",
+    desc: "Developed a data pipeline that ingests transactional records from AWS DynamoDB, applies complex business rules, and delivers detailed financial and operational reports for a multi‑location cafeteria network. Built an XGBoost sales‐forecasting model and automated executive‑ready, natural‑language summaries via the OpenAI API",
+    className: "md:col-span-2",
+    thumbnail: "/exp1.svg",
+  },
     {
       id: 2,
-      title: "IA Engineer - APPU",
-      desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-      className: "md:col-span-2", // change to md:col-span-2
+      title: "Full Stack Developer",
+      desc: "Assisted in the development of a web-based platform using React.js, Angularjs, Nextjs, MongoDb, enhancing interactivity.",
+      className: "md:col-span-2",
       thumbnail: "/exp2.svg",
     },
     {
       id: 3,
       title: "Freelance Wordpress Developer - Ditek",
-      desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-      className: "md:col-span-2", // change to md:col-span-2
+      desc: "Led the landing page design and development for a robotics company, utilizing WordPress and Elementor to create a user-friendly interface.",
+      className: "md:col-span-2",
       thumbnail: "/exp3.svg",
     },
     {
       id: 4,
       title: "Freelance AI stocks engineer",
-      desc: "Developed and maintained user-facing features using modern frontend technologies.",
+      desc: "Developed a web application that scrapes data from important financial websites, providing necessary info for extracting indicators for a Machine Learning/DL model for stock prediction.",
       className: "md:col-span-2",
       thumbnail: "/exp4.svg",
     },

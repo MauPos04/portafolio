@@ -177,7 +177,7 @@ export const BentoGridItem = ({
                 {isBrowser && <Lottie {...lottieProps} height={200} width={200} />}
               </div>
 
-              {/* Add email address text above the button */}
+              
               <p className="text-center text-white-200 mb-3 text-lg font-medium">mauriciop1palma@gmail.com</p>
 
               <MagicButton
