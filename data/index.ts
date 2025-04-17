@@ -100,8 +100,14 @@ export const navItems = [
       des: "A web app that scrapes data from websites and provides translation and summarization features.",
       img: "/Summarizer_code.png",
       iconLists: ["/icon_python.svg", "/icons8-hugging-face.svg"],
-      link: "https://github.com/adrianhajdin/iphone",
+      link: "https://github.com/MauPos04/AI_NOTEBOOKS/blob/main/Web%20Scrap%20and%20Translate%20Using%20Transformers.ipynb",
     },
+  ];
+
+
+  export const otherProjects: { id: number; title: string }[] = [
+    { id: 1, title: "Biomass project in Enka's thermoelectric plant" },
+    { id: 2, title: "Water Level PID controller using Neural Networks" }
   ];
   
   export const testimonials = [

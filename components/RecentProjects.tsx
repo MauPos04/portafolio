@@ -1,4 +1,4 @@
-import { projects } from '@/data'
+import { projects, otherProjects } from '@/data'
 import React from 'react'
 import { PinContainer } from './ui/3d-pin'
 import { FaLocationArrow } from 'react-icons/fa'
@@ -56,6 +56,15 @@ export const RecentProjects = () => {
           </div>
         ))}
 
+      </div>
+      {/* Reduced-importance other projects list */}
+      <div className='w-full mt-8 flex flex-col items-center opacity-50 text-sm'>
+        <span className='font-semibold mb-2'>Other Projects:</span>
+        <ul className='space-y-1'>
+          {otherProjects.map((proj) => (
+            <li key={proj.id}>- {proj.title}</li>
+          ))}
+        </ul>
       </div>
     </div>
   )
