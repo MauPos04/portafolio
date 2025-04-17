@@ -49,7 +49,7 @@ export const navItems = [
   
     {
       id: 5,
-      title: "Currently learning new Deep Learning techniques",
+      title: "Currently learning new Deep Learning techniques, and always learning new AI tools.",
       description: "The Inside Scoop",
       className: "md:col-span-3 md:row-span-2",
       imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -83,22 +83,22 @@ export const navItems = [
       title: "AI Engineer APPU Project",
       des: "Developed a comprehensive data processing and reporting solution for a multi-location cafeteria management system. This project extracts transactional data from AWS DynamoDB, processes complex business rules, and generates detailed financial and operational reports for cafeteria management and accounting purposes. Additionally, implemented a sales projection model using XGBoost to forecast future demand and trends, and automated insightful report creation leveraging the OpenAI API for natural language summaries and executive-friendly outputs.",
       img: "/APPU_IMAGE_up.png",
-      iconLists: ["/django_icon.svg", "/icons-bootstrap.svg", "/icon_python.svg", "/tensorflow.svg", "/icon_excel.svg",, "/icons8-aws.svg"],
+      iconLists: ["/django_icon.svg", "/icons-bootstrap.svg", "/icon_python.svg", "/tensorflow.svg", "/icon_excel.svg", "/icons8-aws.svg"],
       link: "https://appu.store/",
     },
     {
       id: 3,
       title: "Que hay pa hacer",
-      des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-      img: "/p3.svg",
-      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg","/icon_angularjs.svg"],
-      link: "https://github.com/adrianhajdin/ai_saas_app",
+      des: "A web application that helps users find activities and events in their area.",
+      img: "/Que_hay_pa_hacer_up.png",
+      iconLists: ["/re.svg", "/icons-bootstrap.svg", "/ts.svg", "/styled-components_icon.svg","/mongodb_svg.svg","/icon_angularjs.svg"],
+      link: "https://github.com/MauPos04/cedesistemas-fs-2023-2",
     },
     {
       id: 4,
       title: "AI Traslator and summariser after scrapping",
       des: "A web app that scrapes data from websites and provides translation and summarization features.",
-      img: "/p4.svg",
+      img: "/Summarizer_code.png",
       iconLists: ["/icon_python.svg", "/icons8-hugging-face.svg"],
       link: "https://github.com/adrianhajdin/iphone",
     },
@@ -109,7 +109,7 @@ export const navItems = [
       quote: "Trabajar junto a Mauricio ha sido un auténtico placer. Su profesionalismo, puntualidad y dedicación en cada fase del proyecto nos han dejado impresionados. Recomiendo a Mauricio sin dudar para cualquier iniciativa que busque resultados sobresalientes.",
       name: "Laura Rodríguez",
       title: "Directora de Innovación en TechVision",
-      img: "/profile1.svg",
+      img: "/profile1",
     },
     {
       quote: "Colaborar con Mauricio fue una experiencia enriquecedora. Su capacidad para encontrar soluciones creativas y su atención al detalle marcaron una gran diferencia en nuestro proyecto. Es, sin duda, el aliado ideal para impulsar cualquier emprendimiento.",
@@ -188,7 +188,7 @@ export const navItems = [
     },
     {
       id: 4,
-      title: "Freelance Data Engineer",
+      title: "Freelance AI stocks engineer",
       desc: "Developed and maintained user-facing features using modern frontend technologies.",
       className: "md:col-span-2",
       thumbnail: "/exp4.svg",
@@ -209,7 +209,7 @@ export const navItems = [
     {
       id: 3,
       img: "/link.svg",
-      url: "https://linkedin.com/"
+      url: "https://www.linkedin.com/in/mauricioposadapalma04"
     },
     {
       id: 4,
