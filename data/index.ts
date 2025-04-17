@@ -105,9 +105,10 @@ export const navItems = [
   ];
 
 
-  export const otherProjects: { id: number; title: string }[] = [
+  export const otherProjects: { id: number; title: string; link?: string }[] = [
     { id: 1, title: "Biomass project in Enka's thermoelectric plant" },
-    { id: 2, title: "Water Level PID controller using Neural Networks" }
+    { id: 2, title: "Water Level PID controller using Neural Networks" }, 
+    { id: 3, title: "Heart Deceases Prediction", link: "https://github.com/MauPos04/Heart_Diseases_Prediction" },
   ];
   
   export const testimonials = [

@@ -58,11 +58,25 @@ export const RecentProjects = () => {
 
       </div>
       {/* Reduced-importance other projects list */}
-      <div className='w-full mt-8 flex flex-col items-center opacity-50 text-sm'>
-        <span className='font-semibold mb-2'>Other Projects:</span>
-        <ul className='space-y-1'>
+      <div className='w-full mt-12 bg-slate-900 p-6 rounded-lg'>
+        <h3 className='text-left text-lg font-semibold text-gray-200 mb-4'>Other Projects</h3>
+        <ul className='space-y-3'>
           {otherProjects.map((proj) => (
-            <li key={proj.id}>- {proj.title}</li>
+            <li key={proj.id} className='flex justify-between items-center p-2 hover:bg-slate-800 rounded'>
+              <span className='text-gray-300 italic'>- {proj.title}</span>
+              {proj.link ? (
+                <a
+                  href={proj.link}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='text-purple hover:underline text-sm font-medium'
+                >
+                  Check Project →
+                </a>
+              ) : (
+                <span className='text-gray-500 text-xs'>No link available</span>
+              )}
+            </li>
           ))}
         </ul>
       </div>
