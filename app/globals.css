@@ -76,6 +76,14 @@
   button {
     @apply active:outline-none;
   }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
+  }
+  /* Offset anchor targets to compensate for fixed header */
+  [id] {
+    scroll-margin-top: 8rem;
+  }
 }
 
 @layer utilities {
