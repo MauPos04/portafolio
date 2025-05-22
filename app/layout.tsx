@@ -1,6 +1,6 @@
-// @sentry/nextjs
-import { register } from "../instrumentation";
-register();
+// // @sentry/nextjs (disabled)
+// import { register } from "../instrumentation"; // disabled
+// register(); // disabled
 
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -12,6 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Mauricio's Portfolio",
   description: "Modern & minimalistic Portfolio",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({
