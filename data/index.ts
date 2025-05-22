@@ -105,7 +105,7 @@ export const projects = [
   },
 ];
 
-
+// other projects
 export const otherProjects: { id: number; title: string; link?: string }[] = [
   { id: 1, title: "Biomass project in Enka's thermoelectric plant" },
   { id: 2, title: "Water Level PID controller using Neural Networks" }, 
