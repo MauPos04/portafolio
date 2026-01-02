@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -11,17 +11,21 @@ import { cn } from "@/utils/cn";
 export const FloatingNav = ({ navItems, className }: { navItems: { name: string; link: string; icon?: JSX.Element }[]; className?: string; }) => {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to target with CSS scroll-margin-top
+  // Scroll to target with a dynamic offset so the fixed nav doesn't cover the section.
   const handleScroll = (link: string) => {
     if (link === "#top") {
       window.scrollTo({ top: 0, behavior: "smooth" });
-      setVisible(false);
       return;
     }
     const target = document.querySelector(link);
     if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      const navHeight = navRef.current?.getBoundingClientRect().height ?? 0;
+      const gap = 16;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY;
+      const top = Math.max(0, targetTop - navHeight - gap);
+      window.scrollTo({ top, behavior: "smooth" });
     }
   };
 
@@ -40,6 +44,7 @@ export const FloatingNav = ({ navItems, className }: { navItems: { name: string;
     <AnimatePresence mode="wait">
       {visible && (
         <motion.div
+          ref={navRef}
           initial={{ opacity: 1, y: -100 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}

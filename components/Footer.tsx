@@ -6,15 +6,17 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className='w-full pt-10 pb-10' id='contact'>
-        <div className='w-full absolute left-0 -bottom-72 min-h-96'>
-            <img 
+    <footer className='relative w-full pt-10 pb-10' id='contact'>
+        <div className='pointer-events-none absolute left-1/2 bottom-0 h-96 w-screen max-w-none -translate-x-1/2 overflow-hidden'>
+            <img
             src='/footer-grid.svg'
             alt='grid'
-            className='w-full h-full opacity-50'
+            className='h-full w-full object-cover opacity-50'
             />
-        </div>        <div className='flex flex-col items-center'>
-            <h1 className="heading lg:max-w--[45vw]">
+        </div>
+
+        <div className='relative z-10 flex flex-col items-center'>
+            <h1 className="heading lg:max-w-[45vw]">
                 Ready to take <span className='text-purple'>your</span> digital presence to the next level?
             </h1>
 
@@ -28,7 +30,7 @@ const Footer = () => {
                 />
             </a>
         </div>
-        <div className='flex mt-16 md:flex-row flex-col justify-between items-center'>
+        <div className='relative z-10 flex mt-16 md:flex-row flex-col justify-between items-center'>
             <p className="md:text-base text-sm md:font-normal font-light">Copyright © 2024 Mauricio</p>
             <div className="flex items-center md:gap-3 gap-6">
                 {socialMedia.map((profile)=> 

@@ -84,9 +84,6 @@
   [id] {
     scroll-margin-top: 6rem;
   }
-  #top {
-    scroll-margin-top: -9rem;
-  }
 }
 
 @layer utilities {
