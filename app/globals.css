@@ -78,17 +78,24 @@
   }
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 8rem;
+    scroll-padding-top: 0;
   }
   /* Offset anchor targets to compensate for fixed header */
   [id] {
-    scroll-margin-top: 8rem;
+    scroll-margin-top: 6rem;
+  }
+  #top {
+    scroll-margin-top: -9rem;
   }
 }
 
 @layer utilities {
   .heading {
     @apply font-bold text-4xl md:text-5xl text-center;
+  }
+
+  .floating-nav-safe-top {
+    top: max(2.5rem, calc(env(safe-area-inset-top, 0px) + 1rem));
   }
 
   .black-gradient {
