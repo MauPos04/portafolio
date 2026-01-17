@@ -108,6 +108,27 @@ export const projects = [
   },
 ];
 
+export const projectsSectionAI = [
+  {
+    id: 1,
+    title: "LLM-to-SQL Analyst",
+    des: "Natural-language analytics that generates safe SQL for fast data exploration and reporting.",
+    img: "/LLM_SQL.png",
+    images: ["/LLM_SQL.png"],
+    iconLists: ["/openai.svg", "/ollama.svg", "/icon_python.svg"],
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "Multimodal RAG Assistant",
+    des: "Retrieval-augmented generation across text and images for grounded, citeable answers.",
+    img: "/Multimodal_RAG.png",
+    images: ["/Multimodal_RAG.png"],
+    iconLists: ["/openai.svg", "/icon_python.svg", "/tensorflow.svg", "/ollama.svg", "/openrouter.svg"],
+    link: "https://github.com/MauPos04/Muldimodal_RAG",
+  },
+];
+
 export const projectsSectionTwo = [
   {
     id: 1,
@@ -270,3 +291,9 @@ export const socialMedia = [
     url: "https://instagram.com/"
   }
 ];
+
+
+
+
+
+

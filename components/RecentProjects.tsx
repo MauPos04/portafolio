@@ -1,7 +1,8 @@
-import { projects, projectsSectionTwo, projectsSectionThree, otherProjects } from '@/data'
+import { projects, projectsSectionAI, projectsSectionTwo, projectsSectionThree, otherProjects } from '@/data'
 import React from 'react'
 import { PinContainer } from './ui/3d-pin'
 import { ProjectImageCarousel } from './ui/ProjectImageCarousel'
+import { InlineSvg } from './ui/InlineSvg'
 import { FaLocationArrow } from 'react-icons/fa'
 
 
@@ -12,6 +13,12 @@ export const RecentProjects = () => {
       lead: 'A small selection of',
       accent: 'Recent Projects',
       items: projects,
+    },
+    {
+      key: 'recent-ai',
+      lead: 'AI & Data Science',
+      accent: 'Projects',
+      items: projectsSectionAI,
     },
     {
       key: 'recent-2',
@@ -69,7 +76,7 @@ export const RecentProjects = () => {
                             style={{
                               transform: `translateX(-${5 * index * 2}px)`
                             }}>
-                            <img src={icon} alt={icon} className='p-2'></img>
+                            <InlineSvg src={icon} title={icon} className='block h-full w-full p-2 text-white [&>svg]:block [&>svg]:h-full [&>svg]:w-full' />
                           </div>
                         ))}
 
@@ -117,3 +124,6 @@ export const RecentProjects = () => {
     </div>
   )
 }
+
+
+
