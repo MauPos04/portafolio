@@ -76,6 +76,7 @@ export const projects = [
     title: "Ditek Robotics Static Website",
     des: "A website dedicated to showcasing robotics products and innovations.",
     img: "/ditek_robotics.png",
+    images: ["/ditek_robotics.png"],
     iconLists: ["/wordpress_icon.svg","/wpformsbg.png", "/elementor-icon.svg"],
     link: "https://ditek.com.co/",
   },
@@ -84,6 +85,7 @@ export const projects = [
     title: "AI Engineer APPU Project",
     des: "Developed a comprehensive data processing and reporting solution for a multi-location cafeteria management system. This project extracts transactional data from AWS DynamoDB, processes complex business rules, and generates detailed financial and operational reports for cafeteria management and accounting purposes. Additionally, implemented a sales projection model using XGBoost to forecast future demand and trends, and automated insightful report creation leveraging the OpenAI API for natural language summaries and executive-friendly outputs.",
     img: "/APPU_IMAGE_up.png",
+    images: ["/APPU_IMAGE_up.png"],
     iconLists: ["/django_icon.svg", "/icons-bootstrap.svg", "/icon_python.svg", "/tensorflow.svg", "/icon_excel.svg", "/icons8-aws.svg"],
     link: "https://appu.store/",
   },
@@ -100,11 +102,71 @@ export const projects = [
     title: "AI Traslator and summariser after scrapping",
     des: "A web app that scrapes data from websites and provides translation and summarization features.",
     img: "/Summarizer_code.png",
+    images: ["/Summarizer_code.png"],
     iconLists: ["/icon_python.svg", "/icons8-hugging-face.svg"],
     link: "https://github.com/MauPos04/AI_NOTEBOOKS/blob/main/Web%20Scrap%20and%20Translate%20Using%20Transformers.ipynb",
   },
 ];
 
+export const projectsSectionTwo = [
+  {
+    id: 1,
+    title: "Arquitecture Landing",
+    des: "Landing page concept highlighting the studio's portfolio, services, and contact flow.",
+    img: "/Arquitecture_1_landing.png",
+    images: ["/Arquitecture_1_landing.png", "/Arquitecture_2_landing.png"],
+    iconLists: [],
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "Fitness Landing",
+    des: "Landing page concept for fitness coaching with benefits, plans, and a clear CTA.",
+    img: "/Fitness_landing_1.png",
+    images: ["/Fitness_landing_1.png", "/Fitness_landing_2.png"],
+    iconLists: [],
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Restaurant Landing",
+    des: "Landing page concept featuring branding, signature dishes, and quick reservations.",
+    img: "/Restaurant_landing_1.png",
+    images: ["/Restaurant_landing_1.png", "/Restaurant_landing_2.png"],
+    iconLists: [],
+    link: "#",
+  },
+];
+
+export const projectsSectionThree = [
+  {
+    id: 1,
+    title: "Restaurant Menu",
+    des: "Clean menu layout concept to showcase dishes, prices, and categories.",
+    img: "/Restaurant_menu_3.png",
+    images: [],
+    iconLists: [],
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "Simple Pricing Landing",
+    des: "Pricing-focused landing page concept with clear tiers and comparisons.",
+    img: "/Simple_landing_1_prices.png",
+    images: [],
+    iconLists: [],
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Simple Landing",
+    des: "Minimal landing page concept focused on a crisp message and key sections.",
+    img: "/Simple_landing_2.png",
+    images: [],
+    iconLists: [],
+    link: "#",
+  },
+];
 // other projects
 export const otherProjects: { id: number; title: string; link?: string }[] = [
   { id: 1, title: "Biomass project in Enka's thermoelectric plant" },
@@ -159,7 +221,7 @@ export const workExperience = [
 {
   id: 1,
   title: "IA Engineer - APPU",
-  desc: "Developed a data pipeline that ingests transactional records from AWS DynamoDB, applies complex business rules, and delivers detailed financial and operational reports for a multi‑location cafeteria network. Built an XGBoost sales‐forecasting model and automated executive‑ready, natural‑language summaries via the OpenAI API",
+  desc: "Developed a data pipeline that ingests transactional records from AWS DynamoDB, applies complex business rules, and delivers detailed financial and operational reports for a multiÃ¢â‚¬â€˜location cafeteria network. Built an XGBoost salesÃ¢â‚¬Âforecasting model and automated executiveÃ¢â‚¬â€˜ready, naturalÃ¢â‚¬â€˜language summaries via the OpenAI API",
   className: "md:col-span-2",
   thumbnail: "/exp1.svg",
 },
