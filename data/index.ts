@@ -222,19 +222,67 @@ export const testimonials = [
   },
 ];  
 
+export const certifications = [
+  {
+    id: 1,
+    name: "NVIDIA Certified",
+    description: "NVIDIA Deep Learning Institute",
+    color: "#76b900",
+  },
+  {
+    id: 2,
+    name: "Google Cloud",
+    description: "Google Cloud Certified",
+    color: "#4285F4",
+  },
+  {
+    id: 3,
+    name: "AWS",
+    description: "Amazon Web Services",
+    color: "#FF9900",
+  },
+  {
+    id: 4,
+    name: "Snowflake",
+    description: "Data Cloud Platform",
+    color: "#29B5E8",
+  },
+  {
+    id: 5,
+    name: "Vertex AI",
+    description: "Google Vertex AI",
+    color: "#4285F4",
+  },
+  {
+    id: 6,
+    name: "Jira",
+    description: "Project Management",
+    color: "#0052CC",
+  },
+  {
+    id: 7,
+    name: "Confluence",
+    description: "Team Collaboration",
+    color: "#0052CC",
+  },
+];
+
 export const companies = [
-  
   {
     id: 1,
     name: "HOSTINGER",
     img: "/host.svg",
-    nameImg: "/hostName.svg",
+    nameImg: "",
+    description: "Web Hosting",
+    color: "#673DE6",
   },
   {
     id: 2,
-    name: "docker.",
+    name: "Docker",
     img: "/dock.svg",
-    nameImg: "/dockerName.svg",
+    nameImg: "",
+    description: "Containerization",
+    color: "#2496ED",
   }
 ];
 
