@@ -1,15 +1,16 @@
 'use client';
 
+import Image from "next/image";
 import { certifications } from "@/data";
-import { SiNvidia, SiGooglecloud, SiAmazonaws, SiSnowflake } from "react-icons/si";
-import { MdCloud } from "react-icons/md";
+import { SiNvidia, SiGooglecloud, SiAmazonaws, SiSnowflake, SiMicrosoftazure } from "react-icons/si";
 
 const iconMap: Record<string, React.ReactNode> = {
   "NVIDIA Certified": <SiNvidia size={36} color="#76b900" />,
   "Google Cloud": <SiGooglecloud size={36} color="#4285F4" />,
   "AWS": <SiAmazonaws size={36} color="#FF9900" />,
   "Snowflake": <SiSnowflake size={36} color="#29B5E8" />,
-  "Vertex AI": <MdCloud size={36} color="#4285F4" />,
+  "Vertex AI": <Image src="/vertex-ai.svg" width={36} height={36} alt="Vertex AI" />,
+  "Microsoft Azure": <SiMicrosoftazure size={36} color="#0078D4" />,
 };
 
 const Certifications = () => {

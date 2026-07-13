@@ -94,6 +94,7 @@ export const projects = [
     title: "Que hay pa hacer",
     des: "A web application that helps users find activities and events in their area.",
     img: "/Que_hay_pa_hacer_up.png",
+    images: ["/Que_hay_pa_hacer_up.png"],
     iconLists: ["/re.svg", "/icons-bootstrap.svg", "/ts.svg", "/styled-components_icon.svg","/mongodb_svg.svg","/icon_angularjs.svg"],
     link: "https://github.com/MauPos04/cedesistemas-fs-2023-2",
   },
@@ -105,6 +106,15 @@ export const projects = [
     images: ["/Summarizer_code.png"],
     iconLists: ["/icon_python.svg", "/icons8-hugging-face.svg"],
     link: "https://github.com/MauPos04/AI_NOTEBOOKS/blob/main/Web%20Scrap%20and%20Translate%20Using%20Transformers.ipynb",
+  },
+  {
+    id: 5,
+    title: "Hablemos por Ellos",
+    des: "Donation and recurring-payment platform that helps a nonprofit manage supporters, contributions, and operational workflows.",
+    img: "/hablemos-por-ellos-logo.png",
+    images: ["/hablemos-por-ellos-logo.png"],
+    iconLists: ["/next.svg", "/re.svg", "/ts.svg"],
+    link: "https://github.com/Hablemos-Por-Ellos/Hablemos_por_ellos_cobros",
   },
 ];
 
@@ -121,11 +131,29 @@ export const projectsSectionAI = [
   {
     id: 2,
     title: "Multimodal RAG Assistant",
-    des: "Retrieval-augmented generation across text and images for grounded, citeable answers.",
+    des: "Retrieval-augmented generation across text and images for grounded, citable answers.",
     img: "/Multimodal_RAG.png",
     images: ["/Multimodal_RAG.png"],
     iconLists: ["/openai.svg", "/icon_python.svg", "/tensorflow.svg", "/ollama.svg", "/openrouter.svg"],
     link: "https://github.com/MauPos04/Muldimodal_RAG",
+  },
+  {
+    id: 3,
+    title: "AI Stocks Prediction",
+    des: "Production-ready financial forecasting platform combining market data, machine learning, deep learning, and portfolio insights.",
+    img: "/ai-stocks-production.png",
+    images: ["/ai-stocks-production.png"],
+    iconLists: ["/icon_python.svg", "/tensorflow.svg"],
+    link: "https://github.com/MauPos04/AI_stocks_model_f1",
+  },
+  {
+    id: 4,
+    title: "Scores Prediction",
+    des: "End-to-end football prediction product with an ensemble ML API, data pipelines, authentication, and a responsive analytics interface.",
+    img: "/scores-prediction.png",
+    images: ["/scores-prediction.png"],
+    iconLists: ["/icon_python.svg", "/re.svg", "/ts.svg"],
+    link: "https://github.com/MauPos04/Scores-pred-front",
   },
 ];
 
@@ -264,6 +292,12 @@ export const certifications = [
     name: "Confluence",
     description: "Team Collaboration",
     color: "#0052CC",
+  },
+  {
+    id: 8,
+    name: "Microsoft Azure",
+    description: "Cloud & AI Services",
+    color: "#0078D4",
   },
 ];
 

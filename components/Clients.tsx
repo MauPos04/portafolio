@@ -1,18 +1,19 @@
 'use client'
 import React from 'react'
+import Image from 'next/image'
 import { InfiniteMovingCards } from './ui/InfiniteMovingCards'
 import { companies, testimonials, certifications } from '@/data'
-import { SiNvidia, SiGooglecloud, SiAmazonaws, SiSnowflake, SiJira, SiConfluence } from "react-icons/si";
-import { MdCloud } from "react-icons/md";
+import { SiNvidia, SiGooglecloud, SiAmazonaws, SiSnowflake, SiJira, SiConfluence, SiMicrosoftazure } from "react-icons/si";
 
 const iconMap: Record<string, React.ReactNode> = {
   "NVIDIA Certified": <SiNvidia size={28} color="#76b900" />,
   "Google Cloud": <SiGooglecloud size={28} color="#4285F4" />,
   "AWS": <SiAmazonaws size={28} color="#FF9900" />,
   "Snowflake": <SiSnowflake size={28} color="#29B5E8" />,
-  "Vertex AI": <MdCloud size={28} color="#4285F4" />,
+  "Vertex AI": <Image src="/vertex-ai.svg" width={28} height={28} alt="Vertex AI" />,
   "Jira": <SiJira size={28} color="#0052CC" />,
   "Confluence": <SiConfluence size={28} color="#0052CC" />,
+  "Microsoft Azure": <SiMicrosoftazure size={28} color="#0078D4" />,
 };
 
 const Clients = () => {
