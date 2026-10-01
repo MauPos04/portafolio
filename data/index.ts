@@ -50,8 +50,8 @@ export const gridItems = [
 
   {
     id: 5,
-    title: "Currently learning new Deep Learning techniques, and always learning new AI tools.",
-    description: "The Inside Scoop",
+    title: "Building RAG systems, evaluating LLMs, and turning data into useful products.",
+    description: "Applied AI & Software",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
     titleClassName: "justify-center md:justify-start lg:justify-center",
@@ -70,7 +70,32 @@ export const gridItems = [
   },
 ];
 
-export const projects = [
+export type PortfolioProject = {
+  id: number;
+  title: string;
+  des: string;
+  img: string;
+  images?: string[];
+  iconLists: string[];
+  link?: string;
+  ctaLabel?: string;
+  tags?: string[];
+  badge?: string;
+};
+
+export const projects: PortfolioProject[] = [
+  {
+    id: 5,
+    title: "Hablemos por Ellos",
+    des: "A donation and recurring-payment platform that helps a nonprofit manage supporters, contributions, and day-to-day operations.",
+    img: "/hablemos-por-ellos-logo.png",
+    images: ["/hablemos-por-ellos-logo.png"],
+    iconLists: ["/next.svg", "/re.svg", "/ts.svg"],
+    link: "https://github.com/Hablemos-Por-Ellos/Hablemos_por_ellos_cobros",
+    ctaLabel: "View code",
+    tags: ["Next.js", "Supabase", "Recurring payments"],
+    badge: "Social impact",
+  },
   {
     id: 1,
     title: "Ditek Robotics Static Website",
@@ -79,85 +104,96 @@ export const projects = [
     images: ["/ditek_robotics.png"],
     iconLists: ["/wordpress_icon.svg","/wpformsbg.png", "/elementor-icon.svg"],
     link: "https://ditek.com.co/",
-  },
-  {
-    id: 2,
-    title: "AI Engineer APPU Project",
-    des: "Developed a comprehensive data processing and reporting solution for a multi-location cafeteria management system. This project extracts transactional data from AWS DynamoDB, processes complex business rules, and generates detailed financial and operational reports for cafeteria management and accounting purposes. Additionally, implemented a sales projection model using XGBoost to forecast future demand and trends, and automated insightful report creation leveraging the OpenAI API for natural language summaries and executive-friendly outputs.",
-    img: "/APPU_IMAGE_up.png",
-    images: ["/APPU_IMAGE_up.png"],
-    iconLists: ["/django_icon.svg", "/icons-bootstrap.svg", "/icon_python.svg", "/tensorflow.svg", "/icon_excel.svg", "/icons8-aws.svg"],
-    link: "https://appu.store/",
+    ctaLabel: "Visit website",
+    tags: ["WordPress", "Elementor"],
+    badge: "Client website",
   },
   {
     id: 3,
-    title: "Que hay pa hacer",
-    des: "A web application that helps users find activities and events in their area.",
+    title: "QueHayPaHacer",
+    des: "An activity-discovery platform with a React interface, Node.js/Express API, and MongoDB persistence.",
     img: "/Que_hay_pa_hacer_up.png",
     images: ["/Que_hay_pa_hacer_up.png"],
-    iconLists: ["/re.svg", "/icons-bootstrap.svg", "/ts.svg", "/styled-components_icon.svg","/mongodb_svg.svg","/icon_angularjs.svg"],
+    iconLists: ["/re.svg", "/ts.svg", "/mongodb_svg.svg"],
     link: "https://github.com/MauPos04/cedesistemas-fs-2023-2",
-  },
-  {
-    id: 4,
-    title: "AI Traslator and summariser after scrapping",
-    des: "A web app that scrapes data from websites and provides translation and summarization features.",
-    img: "/Summarizer_code.png",
-    images: ["/Summarizer_code.png"],
-    iconLists: ["/icon_python.svg", "/icons8-hugging-face.svg"],
-    link: "https://github.com/MauPos04/AI_NOTEBOOKS/blob/main/Web%20Scrap%20and%20Translate%20Using%20Transformers.ipynb",
-  },
-  {
-    id: 5,
-    title: "Hablemos por Ellos",
-    des: "Donation and recurring-payment platform that helps a nonprofit manage supporters, contributions, and operational workflows.",
-    img: "/hablemos-por-ellos-logo.png",
-    images: ["/hablemos-por-ellos-logo.png"],
-    iconLists: ["/next.svg", "/re.svg", "/ts.svg"],
-    link: "https://github.com/Hablemos-Por-Ellos/Hablemos_por_ellos_cobros",
+    ctaLabel: "View code",
+    tags: ["React", "Express", "MongoDB"],
+    badge: "Full-stack product",
   },
 ];
 
-export const projectsSectionAI = [
+export const projectsSectionAI: PortfolioProject[] = [
   {
-    id: 1,
-    title: "LLM-to-SQL Analyst",
-    des: "Natural-language analytics that generates safe SQL for fast data exploration and reporting.",
-    img: "/LLM_SQL.png",
-    images: ["/LLM_SQL.png"],
-    iconLists: ["/openai.svg", "/ollama.svg", "/icon_python.svg"],
-    link: "#",
+    id: 5,
+    title: "AI Support Triage Assistant",
+    des: "An evidence-backed support workflow that retrieves documentation, recommends escalation routes, and improves through human-reviewed feedback.",
+    img: "/support-triage-workflow.svg",
+    iconLists: ["/re.svg", "/ts.svg", "/openai.svg", "/icons8-aws.svg"],
+    tags: ["Express", "DynamoDB", "Vector Stores", "Cognito"],
+    badge: "Private project · Workflow overview",
+  },
+  {
+    id: 4,
+    title: "Sports Prediction Platform",
+    des: "Football and tennis forecasts with calibrated ensemble models, a React interface, and prediction tracking against real outcomes.",
+    img: "/sports-prediction-current.png",
+    images: ["/sports-prediction-current.png", "/prediction-evaluation-workflow.svg"],
+    iconLists: ["/icon_python.svg", "/re.svg", "/ts.svg"],
+    link: "https://github.com/MauPos04/Scores-pred-front",
+    ctaLabel: "View code",
+    tags: ["FastAPI", "XGBoost", "PyTorch", "GCP"],
+    badge: "Football & tennis · Calibration & drift",
+  },
+  {
+    id: 3,
+    title: "Stock Forecasting Platform",
+    des: "LSTM stock forecasts with a FastAPI backend, Next.js interface, authentication, rolling backtests, and calibrated forecast intervals.",
+    img: "/ai-stocks-production.png",
+    images: ["/ai-stocks-production.png", "/prediction-evaluation-workflow.svg"],
+    iconLists: ["/icon_python.svg", "/tensorflow.svg", "/next.svg", "/mongodb_svg.svg"],
+    link: "https://github.com/MauPos04/AI_stocks_model_f1",
+    ctaLabel: "View code",
+    tags: ["FastAPI", "MLflow", "Docker", "Cloud Run"],
+    badge: "Time-series ML · Cloud deployment",
   },
   {
     id: 2,
     title: "Multimodal RAG Assistant",
-    des: "Retrieval-augmented generation across text and images for grounded, citable answers.",
+    des: "Retrieval across text and images to ground answers in source material, combining multimodal processing with hosted and local LLMs.",
     img: "/Multimodal_RAG.png",
     images: ["/Multimodal_RAG.png"],
     iconLists: ["/openai.svg", "/icon_python.svg", "/tensorflow.svg", "/ollama.svg", "/openrouter.svg"],
     link: "https://github.com/MauPos04/Muldimodal_RAG",
-  },
-  {
-    id: 3,
-    title: "AI Stocks Prediction",
-    des: "Production-ready financial forecasting platform combining market data, machine learning, deep learning, and portfolio insights.",
-    img: "/ai-stocks-production.png",
-    images: ["/ai-stocks-production.png"],
-    iconLists: ["/icon_python.svg", "/tensorflow.svg"],
-    link: "https://github.com/MauPos04/AI_stocks_model_f1",
-  },
-  {
-    id: 4,
-    title: "Scores Prediction",
-    des: "End-to-end football prediction product with an ensemble ML API, data pipelines, authentication, and a responsive analytics interface.",
-    img: "/scores-prediction.png",
-    images: ["/scores-prediction.png"],
-    iconLists: ["/icon_python.svg", "/re.svg", "/ts.svg"],
-    link: "https://github.com/MauPos04/Scores-pred-front",
+    ctaLabel: "View code",
+    tags: ["RAG", "Text & images", "Local LLMs"],
+    badge: "Multimodal retrieval",
   },
 ];
 
-export const projectsSectionTwo = [
+export const additionalAIProjects: PortfolioProject[] = [
+  {
+    id: 6,
+    title: "APPU · Forecasting & AI Reporting",
+    des: "DynamoDB data pipelines, XGBoost sales forecasts, and OpenAI executive summaries for a multi-location cafeteria business.",
+    img: "/APPU_IMAGE_up.png",
+    iconLists: ["/icon_python.svg", "/icons8-aws.svg", "/openai.svg", "/icon_excel.svg"],
+    link: "https://appu.store/",
+    ctaLabel: "Visit website",
+    tags: ["XGBoost", "DynamoDB", "Financial reports"],
+    badge: "Business analytics",
+  },
+  {
+    id: 1,
+    title: "LLM-to-SQL Analyst",
+    des: "Natural-language querying for MySQL using LangChain, Python, SQLAlchemy, and local or hosted language models.",
+    img: "/LLM_SQL.png",
+    iconLists: ["/openai.svg", "/ollama.svg", "/icon_python.svg"],
+    tags: ["LangChain", "SQLAlchemy", "MySQL"],
+    badge: "Private project · Natural-language analytics",
+  },
+];
+
+export const projectsSectionTwo: PortfolioProject[] = [
   {
     id: 1,
     title: "Arquitecture Landing",
@@ -187,7 +223,7 @@ export const projectsSectionTwo = [
   },
 ];
 
-export const projectsSectionThree = [
+export const projectsSectionThree: PortfolioProject[] = [
   {
     id: 1,
     title: "Restaurant Menu",
@@ -220,7 +256,8 @@ export const projectsSectionThree = [
 export const otherProjects: { id: number; title: string; link?: string }[] = [
   { id: 1, title: "Biomass project in Enka's thermoelectric plant" },
   { id: 2, title: "Water Level PID controller using Neural Networks" }, 
-  { id: 3, title: "Heart Deceases Prediction", link: "https://github.com/MauPos04/Heart_Diseases_Prediction" },
+  { id: 3, title: "Heart Disease Prediction", link: "https://github.com/MauPos04/Heart_Diseases_Prediction" },
+  { id: 4, title: "AI Translation & Summarization Notebook", link: "https://github.com/MauPos04/AI_NOTEBOOKS/blob/main/Web%20Scrap%20and%20Translate%20Using%20Transformers.ipynb" },
 ];
 
 export const testimonials = [
@@ -250,55 +287,42 @@ export const testimonials = [
   },
 ];  
 
-export const certifications = [
-  {
-    id: 1,
-    name: "NVIDIA Certified",
-    description: "NVIDIA Deep Learning Institute",
-    color: "#76b900",
-  },
-  {
-    id: 2,
-    name: "Google Cloud",
-    description: "Google Cloud Certified",
-    color: "#4285F4",
-  },
-  {
-    id: 3,
-    name: "AWS",
-    description: "Amazon Web Services",
-    color: "#FF9900",
-  },
-  {
-    id: 4,
-    name: "Snowflake",
-    description: "Data Cloud Platform",
-    color: "#29B5E8",
-  },
-  {
-    id: 5,
-    name: "Vertex AI",
-    description: "Google Vertex AI",
-    color: "#4285F4",
-  },
-  {
-    id: 6,
-    name: "Jira",
-    description: "Project Management",
-    color: "#0052CC",
-  },
-  {
-    id: 7,
-    name: "Confluence",
-    description: "Team Collaboration",
-    color: "#0052CC",
-  },
-  {
-    id: 8,
-    name: "Microsoft Azure",
-    description: "Cloud & AI Services",
-    color: "#0078D4",
-  },
+export type Certification = {
+  id: string;
+  name: string;
+  issuer: string;
+  date: string;
+  icon: string;
+  color: string;
+  featured?: boolean;
+  credentialUrl?: string;
+};
+
+export const certifications: Certification[] = [
+  { id: "aws-ai-practitioner", name: "AWS Certified AI Practitioner", issuer: "Amazon Web Services", date: "August 2026", icon: "aws", color: "#FF9900", featured: true },
+  { id: "azure-ai-fundamentals", name: "Microsoft Certified: Azure AI Fundamentals", issuer: "Microsoft", date: "August 2026", icon: "azure", color: "#0078D4", featured: true },
+  { id: "google-genai-leader", name: "Generative AI Leader", issuer: "Google Cloud", date: "February 2026", icon: "google", color: "#4285F4", featured: true },
+  { id: "mongodb-agents", name: "Building AI Agents with MongoDB", issuer: "MongoDB", date: "October 2025", icon: "mongodb", color: "#47A248" },
+  { id: "mongodb-rag", name: "Building RAG Apps Using MongoDB", issuer: "MongoDB", date: "August 2025", icon: "mongodb", color: "#47A248" },
+  { id: "nvidia-deep-learning", name: "Fundamentals of Deep Learning", issuer: "NVIDIA Deep Learning Institute", date: "January 2025", icon: "nvidia", color: "#76B900" },
+  { id: "nvidia-llm", name: "Building LLM Applications With Prompt Engineering", issuer: "NVIDIA Deep Learning Institute", date: "January 2025", icon: "nvidia", color: "#76B900" },
+  { id: "nvidia-transformers", name: "Building Transformer-Based Natural Language Processing Applications", issuer: "NVIDIA Deep Learning Institute", date: "January 2025", icon: "nvidia", color: "#76B900" },
+];
+
+export const technologies = [
+  { id: "python", name: "Python", description: "APIs & data pipelines", icon: "python", color: "#3776AB" },
+  { id: "react", name: "React", description: "Product interfaces", icon: "react", color: "#61DAFB" },
+  { id: "nextjs", name: "Next.js", description: "Full-stack applications", icon: "nextjs", color: "#FFFFFF" },
+  { id: "azure", name: "Microsoft Azure", description: "AI Foundry · AI Search · Blob", icon: "azure", color: "#0078D4" },
+  { id: "aws", name: "AWS", description: "Bedrock · DynamoDB · S3", icon: "aws", color: "#FF9900" },
+  { id: "google", name: "Google Cloud", description: "Cloud Run · Cloud Build", icon: "google", color: "#4285F4" },
+  { id: "vertex", name: "Vertex AI", description: "Google Cloud AI", icon: "vertex", color: "#4285F4" },
+  { id: "tensorflow", name: "TensorFlow", description: "Deep learning & LSTM", icon: "tensorflow", color: "#FF6F00" },
+  { id: "pytorch", name: "PyTorch", description: "Deep learning", icon: "pytorch", color: "#EE4C2C" },
+  { id: "mongodb", name: "MongoDB", description: "Application persistence", icon: "mongodb", color: "#47A248" },
+  { id: "snowflake", name: "Snowflake", description: "Data analysis", icon: "snowflake", color: "#29B5E8" },
+  { id: "jira", name: "Jira", description: "Project management", icon: "jira", color: "#0052CC" },
+  { id: "confluence", name: "Confluence", description: "Team documentation", icon: "confluence", color: "#0052CC" },
 ];
 
 export const companies = [
@@ -321,33 +345,41 @@ export const companies = [
 ];
 
 export const workExperience = [
-{
-  id: 1,
-  title: "IA Engineer - APPU",
-  desc: "Developed a data pipeline that ingests transactional records from AWS DynamoDB, applies complex business rules, and delivers detailed financial and operational reports for a multiÃ¢â‚¬â€˜location cafeteria network. Built an XGBoost salesÃ¢â‚¬Âforecasting model and automated executiveÃ¢â‚¬â€˜ready, naturalÃ¢â‚¬â€˜language summaries via the OpenAI API",
-  className: "md:col-span-2",
-  thumbnail: "/exp1.svg",
-},
+  {
+    id: 1,
+    title: "AI Analyst · Grupo Bios",
+    role: "AI & Software Engineer",
+    period: "April 2026 — Present",
+    desc: "Developing RAG solutions and agent workflows over enterprise information. Evaluating LLMs, improving retrieval, and defining architectures for business use cases.",
+    className: "md:col-span-2",
+    thumbnail: "/exp1.svg",
+  },
   {
     id: 2,
-    title: "Full Stack Developer",
-    desc: "Assisted in the development of a web-based platform using React.js, Angularjs, Nextjs, MongoDb, enhancing interactivity.",
+    title: "Data Scientist · APPU",
+    role: "Data pipelines, forecasting & reporting",
+    period: "November 2024 — April 2025",
+    desc: "Processed cafeteria data from DynamoDB, forecast sales with XGBoost, and automated executive reports with the OpenAI API.",
+    className: "md:col-span-2",
+    thumbnail: "/exp4.svg",
+  },
+  {
+    id: 3,
+    title: "Freelance Web Developer",
+    role: "Full-stack applications",
+    period: "January 2023 — July 2024",
+    desc: "Developed web applications and APIs with React, AngularJS, Node.js, and MongoDB, connecting useful interfaces with reliable backend services.",
     className: "md:col-span-2",
     thumbnail: "/exp2.svg",
   },
   {
-    id: 3,
-    title: "Freelance Wordpress Developer - Ditek",
-    desc: "Led the landing page design and development for a robotics company, utilizing WordPress and Elementor to create a user-friendly interface.",
+    id: 4,
+    title: "Ditek Robotics",
+    role: "Freelance WordPress development",
+    period: "Client project",
+    desc: "Designed and built a product-focused website with WordPress and Elementor for a robotics company.",
     className: "md:col-span-2",
     thumbnail: "/exp3.svg",
-  },
-  {
-    id: 4,
-    title: "Freelance AI stocks engineer",
-    desc: "Developed a web application that scrapes data from important financial websites, providing necessary info for extracting indicators for a Machine Learning/DL model for stock prediction.",
-    className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
   },
 ];
 

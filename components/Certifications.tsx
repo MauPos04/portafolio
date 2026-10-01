@@ -1,43 +1,42 @@
-'use client';
+import { certifications, type Certification } from '@/data'
+import { FaChevronDown } from 'react-icons/fa'
+import { TechnologyIcon } from './ui/TechnologyIcon'
 
-import Image from "next/image";
-import { certifications } from "@/data";
-import { SiNvidia, SiGooglecloud, SiAmazonaws, SiSnowflake, SiMicrosoftazure } from "react-icons/si";
-
-const iconMap: Record<string, React.ReactNode> = {
-  "NVIDIA Certified": <SiNvidia size={36} color="#76b900" />,
-  "Google Cloud": <SiGooglecloud size={36} color="#4285F4" />,
-  "AWS": <SiAmazonaws size={36} color="#FF9900" />,
-  "Snowflake": <SiSnowflake size={36} color="#29B5E8" />,
-  "Vertex AI": <Image src="/vertex-ai.svg" width={36} height={36} alt="Vertex AI" />,
-  "Microsoft Azure": <SiMicrosoftazure size={36} color="#0078D4" />,
-};
+const CredentialCard = ({ certification }: { certification: Certification }) => (
+  <article className='flex items-start gap-4 rounded-2xl border border-white/10 bg-[#04071D] p-5 transition hover:border-purple/50'>
+    <div className='grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.025]'>
+      <TechnologyIcon name={certification.icon} color={certification.color} />
+    </div>
+    <div className='min-w-0'>
+      <p className='text-xs text-white-200/70'>{certification.issuer}</p>
+      <h3 className='mt-1 text-sm font-semibold leading-6 text-white'>{certification.name}</h3>
+      <p className='mt-2 text-xs text-purple'>{certification.date}</p>
+      {certification.credentialUrl && <a href={certification.credentialUrl} target='_blank' rel='noopener noreferrer' className='mt-2 inline-block text-xs text-purple hover:underline'>View credential</a>}
+    </div>
+  </article>
+)
 
 const Certifications = () => {
+  const featured = certifications.filter((certification) => certification.featured)
+  const additional = certifications.filter((certification) => !certification.featured)
   return (
-    <section className="py-20" id="certifications">
-      <h1 className="heading">
-        Certifications &amp;
-        <span className="text-purple"> Technologies</span>
-      </h1>
-      <p className="text-center text-[#C1C2D3] mt-4 mb-10 text-sm md:text-base max-w-2xl mx-auto">
-        Certified and experienced with leading cloud and AI platforms.
-      </p>
-      <div className="flex flex-wrap justify-center gap-6 mt-6">
-        {certifications.map(({ id, name, description, color }) => (
-          <div
-            key={id}
-            className="flex flex-col items-center gap-3 px-8 py-6 rounded-2xl border border-white/[0.1] bg-[#04071D] hover:border-purple transition duration-300 min-w-[140px]"
-            style={{ boxShadow: `0 0 18px 0 ${color}22` }}
-          >
-            <div>{iconMap[name]}</div>
-            <span className="text-white font-semibold text-sm text-center">{name}</span>
-            <span className="text-[#C1C2D3] text-xs text-center">{description}</span>
-          </div>
-        ))}
+    <section className='mt-16 w-full' id='certifications' aria-labelledby='certifications-heading'>
+      <h2 id='certifications-heading' className='text-center text-2xl font-bold text-white'>Certifications &amp; <span className='text-purple'>Learning</span></h2>
+      <p className='mx-auto mb-8 mt-3 max-w-2xl text-center text-sm leading-6 text-white-200'>Cloud AI certifications and applied training in retrieval, agents, and deep learning.</p>
+      <div className='grid gap-4 md:grid-cols-3'>
+        {featured.map((certification) => <CredentialCard key={certification.id} certification={certification} />)}
       </div>
+      <details className='group mt-5'>
+        <summary className='flex min-h-14 cursor-pointer list-none items-center justify-between gap-3 rounded-2xl border border-white/10 bg-[#080b24] px-5 py-4 text-sm font-medium marker:hidden'>
+          <span>More certifications &amp; courses <span className='ml-2 text-white-200/60'>({additional.length})</span></span>
+          <FaChevronDown className='text-purple transition-transform group-open:rotate-180' aria-hidden='true' />
+        </summary>
+        <div className='mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
+          {additional.map((certification) => <CredentialCard key={certification.id} certification={certification} />)}
+        </div>
+      </details>
     </section>
-  );
-};
+  )
+}
 
-export default Certifications;
+export default Certifications

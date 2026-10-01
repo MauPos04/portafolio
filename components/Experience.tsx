@@ -15,9 +15,11 @@ const Experience = () => {
                 <div className='flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2'>
                     <img src={card.thumbnail} alt={card.thumbnail} className='lg:w-32 md:w-20 w-16'/>
                     <div className='lg:ms-5'>
-                        <h1 className='text-start text-xl md:text-2xl font-bold'>
+                        <p className='mb-2 text-xs font-medium uppercase tracking-wider text-purple'>{card.period}</p>
+                        <h3 className='text-start text-xl md:text-2xl font-bold'>
                             {card.title}
-                        </h1>
+                        </h3>
+                        <p className='mt-2 text-sm text-purple'>{card.role}</p>
                         <p className='text-start text-white-100 mt-3 font-semibold'>
                             {card.desc}
                         </p>
