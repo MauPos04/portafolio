@@ -19,17 +19,18 @@ const Hero = () => {
       <div className='flex justify-center relative my-20 z-10'>
         <div className='max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center'>
           <h2 className='uppercase tracking-widest text-xs text-center text-blue-100 max-w-80'>
-            Dynamic Web Magic with Next.js
+            Applied AI · Software Engineering · Data Science
           </h2>
           <TextGenerateEffect
             className='text-center text-[40px] md:text-5xl lg:text-6xl'
-            words='Transforming Concepts into Seamless User Experiences'
+            words='Applied AI, reliable software, measurable results'
           />
 
           <p className='text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl'>
-            Hi, I&apos;m Mauricio, an AI Engineer, FullStack Developer And Data Scientist based in Colombia
+            Hi, I&apos;m Mauricio. I build AI systems and software that turn information into useful products, from RAG workflows to machine learning platforms.
           </p>
-          <a href='#about'>
+          <p className='mb-6 text-center text-xs tracking-wide text-purple md:text-sm'>AI &amp; Software Engineer at Grupo Bios · Based in Medellín, Colombia</p>
+          <a href='#projects'>
             <MagicButton 
               title="Show my work"
               icon = {<FaLocationArrow />}

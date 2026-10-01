@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" fill="none">
+  <rect width="1000" height="560" rx="24" fill="#0d1330"/>
+  <g font-family="Arial, sans-serif">
+    <text x="56" y="68" fill="#CBACF9" font-size="15" letter-spacing="4">PREDICTION EVALUATION / WORKFLOW OVERVIEW</text>
+    <text x="56" y="125" fill="#fff" font-size="36" font-weight="700">Follow the forecast beyond inference.</text>
+    <text x="56" y="162" fill="#a9b7ce" font-size="18">Compare predictions with outcomes and monitor model behavior.</text>
+    <path d="M306 280H358m-12-8 12 8-12 8m296-8h48m-12-8 12 8-12 8" stroke="#CBACF9" stroke-width="3"/>
+    <rect x="56" y="223" width="250" height="145" rx="18" fill="#171d3a" stroke="#32415f"/>
+    <rect x="358" y="223" width="284" height="145" rx="18" fill="#171d3a" stroke="#32415f"/>
+    <rect x="690" y="223" width="254" height="145" rx="18" fill="#211b3f" stroke="#CBACF9" stroke-opacity=".6"/>
+    <text x="80" y="262" fill="#CBACF9" font-size="14">01 / PREDICT</text>
+    <text x="80" y="298" fill="#fff" font-size="24" font-weight="700">Model forecast</text>
+    <text x="80" y="330" fill="#a9b7ce" font-size="16">Save the prediction</text>
+    <text x="382" y="262" fill="#CBACF9" font-size="14">02 / COMPARE</text>
+    <text x="382" y="298" fill="#fff" font-size="24" font-weight="700">Observed outcome</text>
+    <text x="382" y="330" fill="#a9b7ce" font-size="16">Measure errors and calibration</text>
+    <text x="714" y="262" fill="#CBACF9" font-size="14">03 / MONITOR</text>
+    <text x="714" y="298" fill="#fff" font-size="24" font-weight="700">Review changes</text>
+    <text x="714" y="330" fill="#a9b7ce" font-size="16">Track model performance</text>
+    <rect x="56" y="417" width="888" height="72" rx="16" fill="#090e24" stroke="#2a3757"/>
+    <text x="82" y="448" fill="#fff" font-size="17">Evaluation is part of the product.</text>
+    <text x="82" y="474" fill="#a9b7ce" font-size="14">Illustrative workflow — not a chart of measured accuracy or live predictions.</text>
+  </g>
+</svg>
