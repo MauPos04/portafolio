@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" fill="none">
+  <defs>
+    <linearGradient id="bg" x2="1000" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#0d1330"/><stop offset="1" stop-color="#07091a"/></linearGradient>
+    <linearGradient id="accent" x2="750" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#CBACF9"/><stop offset="1" stop-color="#67e8f9"/></linearGradient>
+  </defs>
+  <rect width="1000" height="560" rx="24" fill="url(#bg)"/>
+  <g font-family="Arial, sans-serif">
+    <text x="56" y="65" fill="#CBACF9" font-size="15" letter-spacing="4">AI SUPPORT TRIAGE</text>
+    <text x="56" y="116" fill="#fff" font-size="35" font-weight="700">Evidence before escalation.</text>
+    <text x="56" y="151" fill="#a9b7ce" font-size="18">A workflow overview: retrieval, recommendations, and human review.</text>
+    <path d="M310 275H354M640 275H684M815 355V440H500V355" stroke="url(#accent)" stroke-width="3"/>
+    <path d="m343 268 11 7-11 7m330-14 11 7-11 7M493 367l7-12 7 12" stroke="#CBACF9" stroke-width="3"/>
+    <rect x="56" y="207" width="254" height="148" rx="18" fill="#111a36" stroke="#2a3757"/>
+    <rect x="354" y="207" width="286" height="148" rx="18" fill="#1b1838" stroke="#CBACF9" stroke-opacity=".6"/>
+    <rect x="684" y="207" width="260" height="148" rx="18" fill="#10252e" stroke="#67e8f9" stroke-opacity=".4"/>
+    <text x="80" y="246" fill="#a9b7ce" font-size="13" letter-spacing="2">01 / CONTEXT</text>
+    <text x="80" y="282" fill="#fff" font-size="23" font-weight="700">Ticket + documents</text>
+    <text x="80" y="315" fill="#a9b7ce" font-size="16">Find relevant knowledge</text>
+    <text x="378" y="246" fill="#CBACF9" font-size="13" letter-spacing="2">02 / RETRIEVAL</text>
+    <text x="378" y="282" fill="#fff" font-size="23" font-weight="700">Grounded suggestions</text>
+    <text x="378" y="315" fill="#a9b7ce" font-size="16">Recommend an escalation route</text>
+    <text x="708" y="246" fill="#67e8f9" font-size="13" letter-spacing="2">03 / REVIEW</text>
+    <text x="708" y="282" fill="#fff" font-size="23" font-weight="700">Human feedback</text>
+    <text x="708" y="315" fill="#a9b7ce" font-size="16">Review before reuse</text>
+    <rect x="575" y="418" width="185" height="42" rx="21" fill="#07091a" stroke="#2a3757"/>
+    <text x="667" y="444" fill="#CBACF9" font-size="14" text-anchor="middle">Approved corrections</text>
+    <text x="56" y="510" fill="#8291ae" font-size="14">Semantic search · Structured recommendations · Human oversight</text>
+  </g>
+</svg>

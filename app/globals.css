@@ -76,6 +76,13 @@
   button {
     @apply active:outline-none;
   }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid #CBACF9;
+    outline-offset: 4px;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 0;

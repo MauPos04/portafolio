@@ -1,129 +1,121 @@
-import { projects, projectsSectionAI, projectsSectionTwo, projectsSectionThree, otherProjects } from '@/data'
-import React from 'react'
+import Image from 'next/image'
+import { FaArrowRight, FaChevronDown, FaLock } from 'react-icons/fa'
+import {
+  projects, projectsSectionAI, additionalAIProjects,
+  projectsSectionTwo, projectsSectionThree, otherProjects,
+  type PortfolioProject,
+} from '@/data'
 import { PinContainer } from './ui/3d-pin'
 import { ProjectImageCarousel } from './ui/ProjectImageCarousel'
 import { InlineSvg } from './ui/InlineSvg'
-import { FaLocationArrow } from 'react-icons/fa'
 
-
-export const RecentProjects = () => {
-  const sections = [
-    {
-      key: 'recent-1',
-      lead: 'A small selection of',
-      accent: 'Recent Projects',
-      items: projects,
-    },
-    {
-      key: 'recent-ai',
-      lead: 'AI & Data Science',
-      accent: 'Projects',
-      items: projectsSectionAI,
-    },
-    {
-      key: 'recent-2',
-      lead: 'Concept Study',
-      accent: 'Design Sketches',
-      items: projectsSectionTwo,
-    },
-    {
-      key: 'recent-3',
-      lead: 'Interface Experiments',
-      accent: 'UI Explorations',
-      items: projectsSectionThree,
-    },
-  ]
-
-  return (
-    <div className='py-20' id='projects'>
-      {sections.map((section, index) => {
-        const HeadingTag = index === 0 ? 'h1' : 'h2'
-
-        return (
-          <div key={section.key} className={index === 0 ? '' : 'mt-20'}>
-            <HeadingTag className='heading'>
-              {section.lead}{' '}
-              <span className='text-purple'>{section.accent}</span>
-            </HeadingTag>
-            <div className='flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10'>
-              {section.items.map(({ id, title, des, img, iconLists, link, images
-              }) => (
-                <div key={id} className='sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]'>
-                  <PinContainer title={title} href={link}>
-                    <div className='relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10'>
-                      <div className='relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]'>
-                        <img src="/bg.png" alt='bg-img' className='absolute inset-0 h-full w-full object-cover opacity-80' />
-                        <ProjectImageCarousel
-                          images={images?.length ? images : [img]}
-                          alt={title}
-                          className='absolute inset-0 z-10'
-                          imageClassName='object-contain object-bottom p-4'
-                          autoPlay
-                          intervalMs={5000}
-                        />
-                      </div>
-                    </div>
-                    <h1 className='font-bold lg:text-2xl md:text-xl text-base line-clamp-1'>
-                      {title}
-                    </h1>
-                    <p className='lg:text-xl lg:font-normal font-light text-sm line-clamp-2'>
-                      {des}
-                    </p>
-                    <div className='flex items-center justify-between mt-7 mb-3'>
-                      <div className='flex items-center'>
-                        {iconLists.map((icon, index) => (
-                          <div key={icon} className='border border-white/[0.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center'
-                            style={{
-                              transform: `translateX(-${5 * index * 2}px)`
-                            }}>
-                            <InlineSvg src={icon} title={icon} className='block h-full w-full p-2 text-white [&>svg]:block [&>svg]:h-full [&>svg]:w-full' />
-                          </div>
-                        ))}
-
-                      </div>
-                      <div className='flex justify-center items-center '>
-                        <p className='flex lg:text-xl md:text-xs text-sm text-purple'>
-                          Check Code
-                        </p>
-                        <FaLocationArrow className='ms-3' color='#CBACF9' />
-                      </div>
-
-                    </div>
-
-                  </PinContainer>
-                </div>
-              ))}
-
-            </div>
-          </div>
-        )
-      })}
-      {/* Reduced-importance other projects list */}
-      <div className='w-full mt-12 bg-slate-900 p-6 rounded-lg'>
-        <h3 className='text-left text-lg font-semibold text-gray-200 mb-4'>Other Projects</h3>
-        <ul className='space-y-3'>
-          {otherProjects.map((proj) => (
-            <li key={proj.id} className='flex justify-between items-center p-2 hover:bg-slate-800 rounded'>
-              <span className='text-gray-300 italic'>- {proj.title}</span>
-              {proj.link ? (
-                <a
-                  href={proj.link}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                    className='text-purple hover:underline text-sm font-medium'
-                  >
-                    Check Project
-                </a>
-              ) : (
-                <span className='text-gray-500 text-xs'>No link available</span>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  )
+const iconNames: Record<string, string> = {
+  '/icon_python.svg': 'Python', '/tensorflow.svg': 'TensorFlow',
+  '/re.svg': 'React', '/ts.svg': 'TypeScript', '/next.svg': 'Next.js',
+  '/openai.svg': 'OpenAI', '/ollama.svg': 'Ollama', '/openrouter.svg': 'OpenRouter',
+  '/icons8-aws.svg': 'AWS', '/mongodb_svg.svg': 'MongoDB',
+  '/wordpress_icon.svg': 'WordPress', '/elementor-icon.svg': 'Elementor',
+  '/icon_excel.svg': 'Excel',
 }
+
+const ProjectCards = ({ items }: { items: PortfolioProject[] }) => (
+  <div className='flex flex-wrap items-center justify-center gap-x-24 gap-y-8 py-4 mt-8'>
+    {items.map((project) => {
+      const link = project.link && project.link !== '#' ? project.link : undefined
+      return (
+        <article key={project.id} className='flex h-[35rem] w-[80vw] items-center justify-center sm:h-[43rem] sm:w-[570px]'>
+          <PinContainer title={project.title}>
+            <div className='w-[80vw] sm:w-[570px]'>
+              <div className='relative mb-6 h-[30vh] min-h-[180px] overflow-hidden rounded-2xl bg-[#13162d] sm:h-[40vh] sm:min-h-[240px]'>
+                <Image src='/bg.png' alt='' fill sizes='(max-width: 640px) 80vw, 570px' className='object-cover opacity-80' />
+                <ProjectImageCarousel
+                  images={project.images?.length ? project.images : [project.img]}
+                  alt={project.title}
+                  className='absolute inset-0 z-10'
+                  imageClassName='object-contain object-center p-4'
+                  autoPlay
+                  intervalMs={5000}
+                />
+              </div>
+              {project.badge && <p className='mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-purple sm:text-xs'>{project.badge}</p>}
+              <h3 className='font-bold text-lg sm:text-2xl'>{project.title}</h3>
+              <p className='mt-2 text-sm leading-6 text-white-200 sm:text-base'>{project.des}</p>
+              {project.tags && (
+                <ul aria-label={project.title + ' technologies'} className='mt-3 flex flex-wrap gap-2'>
+                  {project.tags.map((tag) => <li key={tag} className='rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] text-white-200 sm:text-xs'>{tag}</li>)}
+                </ul>
+              )}
+              <div className='mt-5 flex items-center justify-between gap-2'>
+                <div className='flex items-center'>
+                  {project.iconLists.map((icon, index) => (
+                    <div key={icon} title={iconNames[icon]} className='flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black sm:h-10 sm:w-10' style={{ marginLeft: index === 0 ? 0 : -8 }}>
+                      <InlineSvg src={icon} title={iconNames[icon] ?? 'Technology'} className='block h-full w-full p-2 text-white [&>svg]:block [&>svg]:h-full [&>svg]:w-full' />
+                    </div>
+                  ))}
+                </div>
+                {link ? (
+                  <a href={link} target='_blank' rel='noopener noreferrer' className='flex shrink-0 items-center gap-2 text-xs font-medium text-purple hover:text-white sm:text-base' aria-label={(project.ctaLabel ?? 'View project') + ': ' + project.title}>
+                    {project.ctaLabel ?? 'View project'} <FaArrowRight aria-hidden='true' />
+                  </a>
+                ) : (
+                  <span className='flex items-center gap-1.5 text-xs text-white-200/60'>
+                    {project.badge?.includes('Private') ? <><FaLock aria-hidden='true' /> Private project</> : 'Design concept'}
+                  </span>
+                )}
+              </div>
+            </div>
+          </PinContainer>
+        </article>
+      )
+    })}
+  </div>
+)
+
+const DisclosureTitle = ({ title, count }: { title: string; count: number }) => (
+  <summary className='flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 rounded-2xl border border-white/15 bg-[#080b24] px-5 py-4 font-medium marker:hidden'>
+    <span>{title} <span className='ml-2 text-sm text-white-200/60'>({count})</span></span>
+    <FaChevronDown className='shrink-0 text-purple transition-transform group-open:rotate-180' aria-hidden='true' />
+  </summary>
+)
+
+export const RecentProjects = () => (
+  <section className='py-20' id='projects'>
+    <p className='mb-4 text-center text-xs font-semibold uppercase tracking-[0.25em] text-purple'>Selected work</p>
+    <h2 className='heading'>AI & Data Science <span className='text-purple'>Projects</span></h2>
+    <p className='mx-auto mt-5 max-w-2xl text-center text-sm leading-7 text-white-200 sm:text-base'>
+      Applied AI, forecasting, and retrieval systems built around real workflows, with evaluation and human oversight.
+    </p>
+    <ProjectCards items={projectsSectionAI} />
+    <details className='group mt-6'>
+      <DisclosureTitle title='Explore more AI projects' count={additionalAIProjects.length} />
+      <ProjectCards items={additionalAIProjects} />
+    </details>
+
+    <div className='mt-20'>
+      <h2 className='heading'>Web & Product <span className='text-purple'>Projects</span></h2>
+      <p className='mx-auto mt-5 max-w-2xl text-center text-sm leading-7 text-white-200 sm:text-base'>Useful interfaces, connected services, and client work.</p>
+      <ProjectCards items={projects} />
+    </div>
+
+    <details className='group mt-12'>
+      <DisclosureTitle title='Design sketches & UI explorations' count={projectsSectionTwo.length + projectsSectionThree.length} />
+      <p className='mt-6 text-center text-sm text-white-200'>Landing pages, menus, and pricing concepts from my design explorations.</p>
+      <ProjectCards items={[...projectsSectionTwo, ...projectsSectionThree].map((project, index) => ({ ...project, id: index + 1 }))} />
+    </details>
+
+    <details className='group mt-5'>
+      <DisclosureTitle title='Other projects & notebooks' count={otherProjects.length} />
+      <ul className='mt-4 space-y-3 rounded-2xl border border-white/10 bg-[#080b24] p-5'>
+        {otherProjects.map((project) => (
+          <li key={project.id} className='flex items-center justify-between gap-4 rounded-lg p-2'>
+            <span className='text-sm text-white-200'>{project.title}</span>
+            {project.link && <a href={project.link} target='_blank' rel='noopener noreferrer' className='shrink-0 text-xs text-purple hover:underline' aria-label={'View ' + project.title}>View project</a>}
+          </li>
+        ))}
+      </ul>
+    </details>
+  </section>
+)
 
 
 

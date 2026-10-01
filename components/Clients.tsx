@@ -1,68 +1,38 @@
 'use client'
-import React from 'react'
 import Image from 'next/image'
 import { InfiniteMovingCards } from './ui/InfiniteMovingCards'
-import { companies, testimonials, certifications } from '@/data'
-import { SiNvidia, SiGooglecloud, SiAmazonaws, SiSnowflake, SiJira, SiConfluence, SiMicrosoftazure } from "react-icons/si";
+import { companies, testimonials, technologies } from '@/data'
+import Certifications from './Certifications'
+import { TechnologyIcon } from './ui/TechnologyIcon'
 
-const iconMap: Record<string, React.ReactNode> = {
-  "NVIDIA Certified": <SiNvidia size={28} color="#76b900" />,
-  "Google Cloud": <SiGooglecloud size={28} color="#4285F4" />,
-  "AWS": <SiAmazonaws size={28} color="#FF9900" />,
-  "Snowflake": <SiSnowflake size={28} color="#29B5E8" />,
-  "Vertex AI": <Image src="/vertex-ai.svg" width={28} height={28} alt="Vertex AI" />,
-  "Jira": <SiJira size={28} color="#0052CC" />,
-  "Confluence": <SiConfluence size={28} color="#0052CC" />,
-  "Microsoft Azure": <SiMicrosoftazure size={28} color="#0078D4" />,
-};
-
-const Clients = () => {
-  return (
-    <div className='py-20' id='testimonials'>
-      <h1 className='heading'>
-        Kind words of
-        <span className='text-purple'> satisfied Clients</span>
-      </h1>
-      <div className='flex flex-col items-center max-lg:mt-10'>
-
-        <InfiniteMovingCards
-          items={testimonials}
-          direction='right'
-          speed='slow'
-        />
-
-        {/* Certifications & Technologies */}
-        <h2 className='text-2xl font-bold text-white mt-16 mb-8 text-center'>
-          Certifications &amp; <span className='text-purple'>Technologies</span>
-        </h2>
-        <div className='flex flex-wrap items-center justify-center gap-4 md:gap-6 max-lg:mt-4'>
-          {certifications.map(({ id, name, description, color }) => (
-            <div
-              key={id}
-              className='flex flex-col items-center gap-2 px-6 py-5 rounded-2xl border border-white/[0.1] bg-[#04071D] hover:border-purple transition duration-300 min-w-[120px]'
-              style={{ boxShadow: `0 0 16px 0 ${color}22` }}
-            >
-              <div>{iconMap[name]}</div>
-              <span className='text-white font-semibold text-xs text-center'>{name}</span>
-              <span className='text-[#C1C2D3] text-xs text-center'>{description}</span>
+const Clients = () => (
+  <section className='py-20' id='testimonials'>
+    <h2 className='heading'>Kind words of <span className='text-purple'>satisfied Clients</span></h2>
+    <div className='flex flex-col items-center max-lg:mt-10'>
+      <InfiniteMovingCards items={testimonials} direction='right' speed='slow' />
+      <Certifications />
+      <section className='mt-12 w-full' aria-labelledby='technologies-heading'>
+        <h2 id='technologies-heading' className='mb-3 text-center text-2xl font-bold'>Technologies <span className='text-purple'>I work with</span></h2>
+        <p className='mb-8 text-center text-sm text-white-200'>The tools behind my AI systems, data pipelines, and applications.</p>
+        <div className='flex flex-wrap items-stretch justify-center gap-4'>
+          {technologies.map(({ id, name, description, icon, color }) => (
+            <div key={id} className='flex w-[calc(50%-0.5rem)] flex-col items-center gap-2 rounded-2xl border border-white/10 bg-[#04071D] px-4 py-5 transition hover:border-purple sm:w-[168px]' style={{ boxShadow: '0 0 16px 0 ' + color + '18' }}>
+              <TechnologyIcon name={icon} color={color} />
+              <span className='text-center text-xs font-semibold text-white'>{name}</span>
+              <span className='text-center text-xs leading-5 text-white-200'>{description}</span>
             </div>
           ))}
           {companies.map(({ id, img, name, description, color }) => (
-            <div
-              key={`company-${id}`}
-              className='flex flex-col items-center gap-2 px-6 py-5 rounded-2xl border border-white/[0.1] bg-[#04071D] hover:border-purple transition duration-300 min-w-[120px]'
-              style={{ boxShadow: `0 0 16px 0 ${color}22` }}
-            >
-              <img src={img} alt={name} className='w-7 h-7 object-contain' />
-              <span className='text-white font-semibold text-xs text-center'>{name}</span>
-              <span className='text-[#C1C2D3] text-xs text-center'>{description}</span>
+            <div key={'company-' + id} className='flex w-[calc(50%-0.5rem)] flex-col items-center gap-2 rounded-2xl border border-white/10 bg-[#04071D] px-4 py-5 transition hover:border-purple sm:w-[168px]' style={{ boxShadow: '0 0 16px 0 ' + color + '18' }}>
+              <Image src={img} alt='' width={28} height={28} className='h-7 w-7 object-contain' />
+              <span className='text-center text-xs font-semibold text-white'>{name}</span>
+              <span className='text-center text-xs leading-5 text-white-200'>{description}</span>
             </div>
           ))}
         </div>
-
-      </div>
+      </section>
     </div>
-  )
-}
+  </section>
+)
 
 export default Clients

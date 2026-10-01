@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
@@ -8,6 +8,33 @@ const World = dynamic(() => import("./Globe").then((m) => m.World), {
 });
 
 export function GlobeDemo() {
+  const globeContainerRef = useRef<HTMLDivElement>(null);
+  const [shouldLoadGlobe, setShouldLoadGlobe] = useState(false);
+
+  useEffect(() => {
+    const container = globeContainerRef.current;
+    if (!container) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setShouldLoadGlobe(true);
+      return;
+    }
+
+    // Mount the WebGL scene only when it is close to the viewport.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShouldLoadGlobe(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "150px 0px", threshold: 0 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
@@ -399,8 +426,8 @@ export function GlobeDemo() {
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden px-4 h-96">
         
         <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
-        <div className="absolute w-full h-72 md:h-full z-10">
-          <World data={sampleArcs} globeConfig={globeConfig} />
+        <div ref={globeContainerRef} className="absolute w-full h-72 md:h-full z-10">
+          {shouldLoadGlobe && <World data={sampleArcs} globeConfig={globeConfig} />}
         </div>
       </div>
     </div>
