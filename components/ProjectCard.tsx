@@ -3,10 +3,11 @@ import { FaLock } from 'react-icons/fa'
 import type { PortfolioProject } from '@/data'
 import { cn } from '@/utils/cn'
 import { ArrowLink } from './ui/ArrowLink'
+import { PinCard } from './ui/PinCard'
 import { ProjectIcon, projectIconName } from './ui/ProjectIcon'
 import { ProjectImageCarousel } from './ui/ProjectImageCarousel'
 
-// Flat card: no 3D tilt, no glow; only the border lightens on hover.
+// Sober card; on fine pointers PinCard adds the v0.2.0 "goes backwards" 3D hover (CSS only).
 export function ProjectCard({ project, sizes, concept = false }: {
   project: PortfolioProject
   sizes: string
@@ -17,7 +18,8 @@ export function ProjectCard({ project, sizes, concept = false }: {
   const iconNames = project.iconLists.map(projectIconName).filter(Boolean)
 
   return (
-    <article id={project.slug} className='flex flex-col rounded-xl border border-border bg-card p-3 transition-colors duration-150 hover:border-border-strong'>
+    <PinCard id={project.slug} title={project.title}>
+    <article className='flex flex-1 flex-col rounded-xl border border-border bg-card p-3 transition-colors duration-150 hover:border-border-strong'>
       <div className={cn('relative overflow-hidden rounded-lg border border-border bg-muted', concept ? 'aspect-[16/10]' : 'aspect-video')}>
         {images.length > 1 ? (
           <ProjectImageCarousel images={images} title={project.title} sizes={sizes} />
@@ -58,5 +60,6 @@ export function ProjectCard({ project, sizes, concept = false }: {
         )}
       </div>
     </article>
+    </PinCard>
   )
 }
