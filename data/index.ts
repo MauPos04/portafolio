@@ -1,77 +1,6 @@
-export const navItems = [
-  { name: "Start", link: "#top" },
-  { name: "About", link: "#about" },
-  { name: "Projects", link: "#projects" },
-  { name: "Testimonials", link: "#testimonials" },
-  { name: "Contact", link: "#contact" },
-];
-
-export const gridItems = [
-  {
-    id: 1,
-    title: "I prioritize client collaboration, fostering open communication ",
-    description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-    imgClassName: "w-full h-full",
-    titleClassName: "justify-end",
-    img: "/XG_MAC.png",
-    spareImg: "",
-  },
-  {
-    id: 2,
-    title: "I'm very flexible with time zone communications",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
-    titleClassName: "justify-start",
-    img: "",
-    spareImg: "",
-  },
-  {
-    id: 3,
-    title: "My tech stack",
-    description: "I constantly try to improve",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
-    titleClassName: "justify-center",
-    img: "",
-    spareImg: "",
-  },
-  {
-    id: 4,
-    title: "Tech enthusiast with a passion for development.",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-    imgClassName: "",
-    titleClassName: "justify-start",
-    img: "/grid.svg",
-    spareImg: "/b4.svg",
-  },
-
-  {
-    id: 5,
-    title: "Building RAG systems, evaluating LLMs, and turning data into useful products.",
-    description: "Applied AI & Software",
-    className: "md:col-span-3 md:row-span-2",
-    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
-    titleClassName: "justify-center md:justify-start lg:justify-center",
-    img: "/b5.svg",
-    spareImg: "/grid.svg",
-  },
-  {
-    id: 6,
-    title: "Do you want to start a project together?",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-    imgClassName: "",
-    titleClassName: "justify-center md:max-w-full max-w-60 text-center",
-    img: "",
-    spareImg: "",
-  },
-];
-
 export type PortfolioProject = {
   id: number;
+  slug?: string;
   title: string;
   des: string;
   img: string;
@@ -83,9 +12,12 @@ export type PortfolioProject = {
   badge?: string;
 };
 
+export const contactEmail = "mauriciop1palma@gmail.com";
+
 export const projects: PortfolioProject[] = [
   {
     id: 5,
+    slug: "hablemos-por-ellos",
     title: "Hablemos por Ellos",
     des: "A donation and recurring-payment platform that helps a nonprofit manage supporters, contributions, and day-to-day operations.",
     img: "/hablemos-por-ellos-logo.png",
@@ -98,6 +30,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: 1,
+    slug: "ditek-robotics",
     title: "Ditek Robotics Static Website",
     des: "A website dedicated to showcasing robotics products and innovations.",
     img: "/ditek_robotics.png",
@@ -110,6 +43,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: 3,
+    slug: "quehaypahacer",
     title: "QueHayPaHacer",
     des: "An activity-discovery platform with a React interface, Node.js/Express API, and MongoDB persistence.",
     img: "/Que_hay_pa_hacer_up.png",
@@ -125,6 +59,7 @@ export const projects: PortfolioProject[] = [
 export const projectsSectionAI: PortfolioProject[] = [
   {
     id: 5,
+    slug: "ai-support-triage",
     title: "AI Support Triage Assistant",
     des: "An evidence-backed support workflow that retrieves documentation, recommends escalation routes, and improves through human-reviewed feedback.",
     img: "/support-triage-workflow.svg",
@@ -134,6 +69,7 @@ export const projectsSectionAI: PortfolioProject[] = [
   },
   {
     id: 4,
+    slug: "sports-prediction",
     title: "Sports Prediction Platform",
     des: "Football and tennis forecasts with calibrated ensemble models, a React interface, and prediction tracking against real outcomes.",
     img: "/sports-prediction-current.png",
@@ -146,6 +82,7 @@ export const projectsSectionAI: PortfolioProject[] = [
   },
   {
     id: 3,
+    slug: "stock-forecasting",
     title: "Stock Forecasting Platform",
     des: "LSTM stock forecasts with a FastAPI backend, Next.js interface, authentication, rolling backtests, and calibrated forecast intervals.",
     img: "/ai-stocks-production.png",
@@ -158,6 +95,7 @@ export const projectsSectionAI: PortfolioProject[] = [
   },
   {
     id: 2,
+    slug: "multimodal-rag",
     title: "Multimodal RAG Assistant",
     des: "Retrieval across text and images to ground answers in source material, combining multimodal processing with hosted and local LLMs.",
     img: "/Multimodal_RAG.png",
@@ -173,6 +111,7 @@ export const projectsSectionAI: PortfolioProject[] = [
 export const additionalAIProjects: PortfolioProject[] = [
   {
     id: 6,
+    slug: "appu",
     title: "APPU · Forecasting & AI Reporting",
     des: "DynamoDB data pipelines, XGBoost sales forecasts, and OpenAI executive summaries for a multi-location cafeteria business.",
     img: "/APPU_IMAGE_up.png",
@@ -184,6 +123,7 @@ export const additionalAIProjects: PortfolioProject[] = [
   },
   {
     id: 1,
+    slug: "llm-to-sql",
     title: "LLM-to-SQL Analyst",
     des: "Natural-language querying for MySQL using LangChain, Python, SQLAlchemy, and local or hosted language models.",
     img: "/LLM_SQL.png",
@@ -255,7 +195,7 @@ export const projectsSectionThree: PortfolioProject[] = [
 // other projects
 export const otherProjects: { id: number; title: string; link?: string }[] = [
   { id: 1, title: "Biomass project in Enka's thermoelectric plant" },
-  { id: 2, title: "Water Level PID controller using Neural Networks" }, 
+  { id: 2, title: "Water Level PID controller using Neural Networks" },
   { id: 3, title: "Heart Disease Prediction", link: "https://github.com/MauPos04/Heart_Diseases_Prediction" },
   { id: 4, title: "AI Translation & Summarization Notebook", link: "https://github.com/MauPos04/AI_NOTEBOOKS/blob/main/Web%20Scrap%20and%20Translate%20Using%20Transformers.ipynb" },
 ];
@@ -285,7 +225,7 @@ export const testimonials = [
     title: "Inplay Genius Sports Supervisor",
     // img: "/profile4.svg",
   },
-];  
+];
 
 export type Certification = {
   id: string;
@@ -293,55 +233,74 @@ export type Certification = {
   issuer: string;
   date: string;
   icon: string;
-  color: string;
   featured?: boolean;
   credentialUrl?: string;
 };
 
 export const certifications: Certification[] = [
-  { id: "aws-ai-practitioner", name: "AWS Certified AI Practitioner", issuer: "Amazon Web Services", date: "August 2026", icon: "aws", color: "#FF9900", featured: true },
-  { id: "azure-ai-fundamentals", name: "Microsoft Certified: Azure AI Fundamentals", issuer: "Microsoft", date: "August 2026", icon: "azure", color: "#0078D4", featured: true },
-  { id: "google-genai-leader", name: "Generative AI Leader", issuer: "Google Cloud", date: "February 2026", icon: "google", color: "#4285F4", featured: true },
-  { id: "mongodb-agents", name: "Building AI Agents with MongoDB", issuer: "MongoDB", date: "October 2025", icon: "mongodb", color: "#47A248" },
-  { id: "mongodb-rag", name: "Building RAG Apps Using MongoDB", issuer: "MongoDB", date: "August 2025", icon: "mongodb", color: "#47A248" },
-  { id: "nvidia-deep-learning", name: "Fundamentals of Deep Learning", issuer: "NVIDIA Deep Learning Institute", date: "January 2025", icon: "nvidia", color: "#76B900" },
-  { id: "nvidia-llm", name: "Building LLM Applications With Prompt Engineering", issuer: "NVIDIA Deep Learning Institute", date: "January 2025", icon: "nvidia", color: "#76B900" },
-  { id: "nvidia-transformers", name: "Building Transformer-Based Natural Language Processing Applications", issuer: "NVIDIA Deep Learning Institute", date: "January 2025", icon: "nvidia", color: "#76B900" },
+  { id: "aws-ai-practitioner", name: "AWS Certified AI Practitioner", issuer: "Amazon Web Services", date: "August 2026", icon: "aws", featured: true },
+  { id: "azure-ai-fundamentals", name: "Microsoft Certified: Azure AI Fundamentals", issuer: "Microsoft", date: "August 2026", icon: "azure", featured: true },
+  { id: "google-genai-leader", name: "Generative AI Leader", issuer: "Google Cloud", date: "February 2026", icon: "google", featured: true },
+  { id: "mongodb-agents", name: "Building AI Agents with MongoDB", issuer: "MongoDB", date: "October 2025", icon: "mongodb" },
+  { id: "mongodb-rag", name: "Building RAG Apps Using MongoDB", issuer: "MongoDB", date: "August 2025", icon: "mongodb" },
+  { id: "nvidia-deep-learning", name: "Fundamentals of Deep Learning", issuer: "NVIDIA Deep Learning Institute", date: "January 2025", icon: "nvidia" },
+  { id: "nvidia-llm", name: "Building LLM Applications With Prompt Engineering", issuer: "NVIDIA Deep Learning Institute", date: "January 2025", icon: "nvidia" },
+  { id: "nvidia-transformers", name: "Building Transformer-Based Natural Language Processing Applications", issuer: "NVIDIA Deep Learning Institute", date: "January 2025", icon: "nvidia" },
 ];
 
-export const technologies = [
-  { id: "python", name: "Python", description: "APIs & data pipelines", icon: "python", color: "#3776AB" },
-  { id: "react", name: "React", description: "Product interfaces", icon: "react", color: "#61DAFB" },
-  { id: "nextjs", name: "Next.js", description: "Full-stack applications", icon: "nextjs", color: "#FFFFFF" },
-  { id: "azure", name: "Microsoft Azure", description: "AI Foundry · AI Search · Blob", icon: "azure", color: "#0078D4" },
-  { id: "aws", name: "AWS", description: "Bedrock · DynamoDB · S3", icon: "aws", color: "#FF9900" },
-  { id: "google", name: "Google Cloud", description: "Cloud Run · Cloud Build", icon: "google", color: "#4285F4" },
-  { id: "vertex", name: "Vertex AI", description: "Google Cloud AI", icon: "vertex", color: "#4285F4" },
-  { id: "tensorflow", name: "TensorFlow", description: "Deep learning & LSTM", icon: "tensorflow", color: "#FF6F00" },
-  { id: "pytorch", name: "PyTorch", description: "Deep learning", icon: "pytorch", color: "#EE4C2C" },
-  { id: "mongodb", name: "MongoDB", description: "Application persistence", icon: "mongodb", color: "#47A248" },
-  { id: "snowflake", name: "Snowflake", description: "Data analysis", icon: "snowflake", color: "#29B5E8" },
-  { id: "jira", name: "Jira", description: "Project management", icon: "jira", color: "#0052CC" },
-  { id: "confluence", name: "Confluence", description: "Team documentation", icon: "confluence", color: "#0052CC" },
+export type Technology = { name: string; icon?: string; detail?: string };
+
+// Overview "Stack" strip (the list previously shown in the bento grid).
+export const overviewStack: Technology[] = [
+  { name: "Python", icon: "python" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "Azure", icon: "azure" },
+  { name: "React", icon: "react" },
+  { name: "Next.js", icon: "nextjs" },
+  { name: "RAG" },
 ];
 
-export const companies = [
+export const technologyGroups: { title: string; items: Technology[] }[] = [
   {
-    id: 1,
-    name: "HOSTINGER",
-    img: "/host.svg",
-    nameImg: "",
-    description: "Web Hosting",
-    color: "#673DE6",
+    title: "Languages & frameworks",
+    items: [
+      { name: "Python", icon: "python" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "React", icon: "react" },
+      { name: "Next.js", icon: "nextjs" },
+    ],
   },
   {
-    id: 2,
-    name: "Docker",
-    img: "/dock.svg",
-    nameImg: "",
-    description: "Containerization",
-    color: "#2496ED",
-  }
+    title: "Cloud & AI platforms",
+    items: [
+      { name: "Microsoft Azure", icon: "azure", detail: "AI Foundry · AI Search · Blob" },
+      { name: "AWS", icon: "aws", detail: "Bedrock · DynamoDB · S3" },
+      { name: "Google Cloud", icon: "google", detail: "Cloud Run · Cloud Build" },
+      { name: "Vertex AI", icon: "vertex" },
+    ],
+  },
+  {
+    title: "Machine learning",
+    items: [
+      { name: "TensorFlow", icon: "tensorflow" },
+      { name: "PyTorch", icon: "pytorch" },
+    ],
+  },
+  {
+    title: "Data",
+    items: [
+      { name: "MongoDB", icon: "mongodb" },
+      { name: "Snowflake", icon: "snowflake" },
+    ],
+  },
+  {
+    title: "Delivery & collaboration",
+    items: [
+      { name: "Docker", icon: "docker" },
+      { name: "Jira", icon: "jira" },
+      { name: "Confluence", icon: "confluence" },
+    ],
+  },
 ];
 
 export const workExperience = [
@@ -351,8 +310,6 @@ export const workExperience = [
     role: "AI & Software Engineer",
     period: "April 2026 — Present",
     desc: "Developing RAG solutions and agent workflows over enterprise information. Evaluating LLMs, improving retrieval, and defining architectures for business use cases.",
-    className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
   },
   {
     id: 2,
@@ -360,8 +317,6 @@ export const workExperience = [
     role: "Data pipelines, forecasting & reporting",
     period: "November 2024 — April 2025",
     desc: "Processed cafeteria data from DynamoDB, forecast sales with XGBoost, and automated executive reports with the OpenAI API.",
-    className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
   },
   {
     id: 3,
@@ -369,45 +324,10 @@ export const workExperience = [
     role: "Full-stack applications",
     period: "January 2023 — July 2024",
     desc: "Developed web applications and APIs with React, AngularJS, Node.js, and MongoDB, connecting useful interfaces with reliable backend services.",
-    className: "md:col-span-2",
-    thumbnail: "/exp2.svg",
-  },
-  {
-    id: 4,
-    title: "Ditek Robotics",
-    role: "Freelance WordPress development",
-    period: "Client project",
-    desc: "Designed and built a product-focused website with WordPress and Elementor for a robotics company.",
-    className: "md:col-span-2",
-    thumbnail: "/exp3.svg",
   },
 ];
 
 export const socialMedia = [
-  {
-    id: 1,
-    img: "/git.svg",
-    url: "https://github.com/MauPos04"
-  },
-  {
-    id: 2,
-    img: "/twit.svg",
-    url: "https://twitter.com/"
-  },
-  {
-    id: 3,
-    img: "/link.svg",
-    url: "https://www.linkedin.com/in/mauricioposadapalma04"
-  },
-  {
-    id: 4,
-    img: "/insta.svg",
-    url: "https://instagram.com/"
-  }
+  { id: 1, name: "GitHub", url: "https://github.com/MauPos04" },
+  { id: 2, name: "LinkedIn", url: "https://www.linkedin.com/in/mauricioposadapalma04" },
 ];
-
-
-
-
-
-

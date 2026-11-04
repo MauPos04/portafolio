@@ -1,35 +1,25 @@
 import { workExperience } from '@/data'
-import React from 'react'
-import { Button } from './ui/MovingBorders'
+import { SectionHeader } from './ui/SectionHeader'
 
 const Experience = () => {
   return (
-    <div className='py-20' id='experience'>
-      <h1 className='heading'>
-        My
-        <span className='text-purple'> work experience</span>
-      </h1>
-      <div className='w-full mt-12 grid lg:grid-cols-4 gird-cols-1 gap-10'>
-        {workExperience.map((card)=>(
-            <Button key={card.id} duration={Math.floor(Math.random()* 10000)+10000 } borderRadius='1.75rem' className='flex-1 text-white border-neutral-200 dark:border-slate-800'>
-                <div className='flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2'>
-                    <img src={card.thumbnail} alt={card.thumbnail} className='lg:w-32 md:w-20 w-16'/>
-                    <div className='lg:ms-5'>
-                        <p className='mb-2 text-xs font-medium uppercase tracking-wider text-purple'>{card.period}</p>
-                        <h3 className='text-start text-xl md:text-2xl font-bold'>
-                            {card.title}
-                        </h3>
-                        <p className='mt-2 text-sm text-purple'>{card.role}</p>
-                        <p className='text-start text-white-100 mt-3 font-semibold'>
-                            {card.desc}
-                        </p>
-
-                    </div>
-                </div>
-            </Button>
+    <section id='work' aria-labelledby='work-heading' className='mx-auto max-w-6xl px-4 pt-14 md:px-8'>
+      <SectionHeader id='work-heading' title='Work experience' />
+      <ol className='border-t border-border'>
+        {workExperience.map((job) => (
+          <li key={job.id}>
+            <article className='grid gap-1.5 border-b border-border py-6 md:grid-cols-[220px_minmax(0,1fr)] md:gap-8'>
+              <p className='font-mono text-[13px] text-muted-foreground'>{job.period}</p>
+              <div>
+                <h3 className='text-lg font-semibold leading-snug tracking-tight md:text-xl'>{job.title}</h3>
+                <p className='mb-2 mt-1 text-[15px] font-medium text-foreground-secondary'>{job.role}</p>
+                <p className='max-w-[68ch] text-[15px] leading-relaxed text-foreground-secondary'>{job.desc}</p>
+              </div>
+            </article>
+          </li>
         ))}
-        </div>
-    </div>
+      </ol>
+    </section>
   )
 }
 
