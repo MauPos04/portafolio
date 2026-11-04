@@ -2,7 +2,7 @@
 
 Personal portfolio built with Next.js 14 (App Router), React 18, TypeScript and Tailwind CSS.
 
-Current version: **0.3.0** (local, not yet released). See [CHANGELOG.md](CHANGELOG.md).
+Current version: **0.3.0**. See [CHANGELOG.md](CHANGELOG.md).
 
 ## Structure
 

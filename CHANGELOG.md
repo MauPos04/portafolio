@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0 — 2026-11-04 (local, not yet released)
+## 0.3.0 — 2026-11-04
 
 - Split the single long page into three tabs with their own URLs: Overview (`/`), Projects (`/projects`) and Experience (`/experience`), with a shared sticky header, per-route titles and the Contact block on every page. Old `/#projects`, `/#experience`, `/#certifications` and `/#testimonials` links redirect to the new routes.
 - Replace the purple/navy styling with a dark zinc palette and a single blue accent (#60A5FA) reserved for links, focus and the active tab; Inter for text and JetBrains Mono for metadata. This reverts the dark purple identity and the large 3D project cards approved on 2026-09-30.
