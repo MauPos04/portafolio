@@ -4,6 +4,44 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { FaRegCopy } from 'react-icons/fa'
 import { ConfettiBurst } from '@/components/ui/ConfettiBurst'
 
+// Selection-based copy for browsers that deny the async Clipboard API, such as
+// embedded or in-app browsers ("Write permission denied"). It runs while the
+// click still counts as a user gesture, so execCommand('copy') is allowed.
+function copyWithSelection(text: string) {
+  const previous = document.activeElement instanceof HTMLElement ? document.activeElement : null
+  const area = document.createElement('textarea')
+  area.value = text
+  area.setAttribute('readonly', '')
+  area.setAttribute('aria-hidden', 'true')
+  area.tabIndex = -1
+  // Fixed at the top-left and 16px, so selecting it neither scrolls nor zooms on iOS.
+  area.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;font-size:16px;pointer-events:none'
+  document.body.appendChild(area)
+  area.select()
+  area.setSelectionRange(0, text.length)
+  let copied = false
+  try {
+    copied = document.execCommand('copy')
+  } catch {
+    copied = false
+  }
+  area.remove()
+  previous?.focus({ preventScroll: true })
+  return copied
+}
+
+async function copyText(text: string) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text)
+      return true
+    } catch {
+      // Permission denied or document not focused: fall back to the selection copy.
+    }
+  }
+  return copyWithSelection(text)
+}
+
 export function CopyEmailButton({ email }: { email: string }) {
   const [state, setState] = useState<'idle' | 'copied' | 'failed'>('idle')
   const [burst, setBurst] = useState(0)
@@ -14,13 +52,12 @@ export function CopyEmailButton({ email }: { email: string }) {
   const clearBurst = useCallback(() => setBurst(0), [])
 
   const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(email)
+    if (await copyText(email)) {
       setState('copied')
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         setBurst((n) => n + 1)
       }
-    } catch {
+    } else {
       setState('failed')
     }
     clearTimeout(timer.current)
