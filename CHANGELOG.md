@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.1 — 2026-11-04
+
+- Copy email falls back to a selection-based copy (`document.execCommand('copy')`) when the browser denies the async Clipboard API, as embedded and in-app browsers do ("Write permission denied"). Before, those browsers showed "Copy failed" and no confetti.
+- Recolor the confetti to the site palette: blues (#60A5FA, #93C5FD, #3B82F6), white and zinc grays replace the original mint, magenta, yellow, purple and green. Animation and timing are unchanged.
+
 ## 0.4.0 — 2026-11-04
 
 - Bring back three effects from 0.2.0 in the sober palette, each loaded only when it is needed:
