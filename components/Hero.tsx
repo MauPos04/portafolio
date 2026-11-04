@@ -1,46 +1,44 @@
-import React from 'react'
-import { Spotlight } from './ui/Spotlights'
-import { TextGenerateEffect } from './ui/TextGenerateEffect'
-import MagicButton from './ui/MagicButton'
-import { FaLocationArrow } from 'react-icons/fa'
+import Link from 'next/link'
+import { FaArrowRight, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { socialMedia } from '@/data'
 
+const socialIcons: Record<string, JSX.Element> = {
+  GitHub: <FaGithub aria-hidden='true' />,
+  LinkedIn: <FaLinkedin aria-hidden='true' />,
+}
+
+// The h1 is the first node of the page so Next.js moves focus to it after navigation.
 const Hero = () => {
   return (
-    <div id='top' className='relative pb-20 pt-36'>
-      <div className='pointer-events-none absolute top-0 left-1/2 h-full w-screen max-w-none -translate-x-1/2 overflow-hidden'>
-        <Spotlight className='-top-40 -left-10 md:-left-32 md:-top-20 h-screen' fill="white"/>
-        <Spotlight className='top-10 left-full h-[80vh] w-[50vw]' fill="purple"/>
-        <Spotlight className='top-28 left-80 h-[80vh] w-[50vw]' fill="blue"/>
-
-        <div className="absolute top-0 left-0 h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black/[0.2] flex items-center justify-center">
-          <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+    <>
+      <h1 tabIndex={-1} className='relative z-10 mx-auto max-w-6xl px-4 pt-14 text-4xl font-semibold leading-[1.05] tracking-[-0.03em] md:px-8 md:pt-20 md:text-5xl lg:text-[56px]'>
+        Mauricio Posada Palma
+      </h1>
+      <div aria-hidden='true' className='pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-grid-white/[0.035] [-webkit-mask-image:radial-gradient(ellipse_60%_85%_at_18%_35%,#000_20%,transparent_72%)] [mask-image:radial-gradient(ellipse_60%_85%_at_18%_35%,#000_20%,transparent_72%)]' />
+      <div className='relative z-10 mx-auto max-w-6xl px-4 pb-12 md:px-8 md:pb-14'>
+        <p className='mt-3.5 font-mono text-xs font-medium uppercase tracking-[0.08em] text-muted-foreground'>
+          Applied AI · Software Engineering · Data Science
+        </p>
+        <p className='mt-6 text-[19px] font-medium leading-snug tracking-tight md:text-[22px]'>
+          Applied AI, reliable software, measurable results
+        </p>
+        <p className='mt-2.5 max-w-[62ch] text-[17px] leading-relaxed text-foreground-secondary md:text-lg'>
+          Hi, I&apos;m Mauricio. I build AI systems and software that turn information into useful products, from RAG workflows to machine learning platforms.
+        </p>
+        <p className='mt-4 font-mono text-[13px] text-muted-foreground'>AI &amp; Software Engineer at Grupo Bios · Based in Medellín, Colombia</p>
+        <div className='mt-7 flex flex-wrap gap-3'>
+          <Link href='/projects' className='inline-flex h-11 items-center gap-2 rounded-lg bg-primary px-[18px] text-sm font-medium text-primary-foreground transition-colors duration-150 hover:bg-primary/90'>
+            Show my work <FaArrowRight aria-hidden='true' />
+          </Link>
+          {socialMedia.map(({ id, name, url }) => (
+            <a key={id} href={url} target='_blank' rel='noopener noreferrer' className='inline-flex h-11 w-11 items-center justify-center gap-2 rounded-lg border border-input text-sm font-medium transition-colors duration-150 hover:border-foreground-secondary hover:bg-muted min-[480px]:w-auto min-[480px]:px-[18px]'>
+              {socialIcons[name]}
+              <span className='sr-only min-[480px]:not-sr-only'>{name}</span>
+            </a>
+          ))}
         </div>
       </div>
-      <div className='flex justify-center relative my-20 z-10'>
-        <div className='max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center'>
-          <h2 className='uppercase tracking-widest text-xs text-center text-blue-100 max-w-80'>
-            Applied AI · Software Engineering · Data Science
-          </h2>
-          <TextGenerateEffect
-            className='text-center text-[40px] md:text-5xl lg:text-6xl'
-            words='Applied AI, reliable software, measurable results'
-          />
-
-          <p className='text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl'>
-            Hi, I&apos;m Mauricio. I build AI systems and software that turn information into useful products, from RAG workflows to machine learning platforms.
-          </p>
-          <p className='mb-6 text-center text-xs tracking-wide text-purple md:text-sm'>AI &amp; Software Engineer at Grupo Bios · Based in Medellín, Colombia</p>
-          <a href='#projects'>
-            <MagicButton 
-              title="Show my work"
-              icon = {<FaLocationArrow />}
-              position = 'right'
-            />
-
-          </a>
-        </div>
-      </div>
-    </div>
+    </>
   )
 }
 

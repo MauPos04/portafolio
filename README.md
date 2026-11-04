@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mauricio Posada Palma — portfolio
 
-## Getting Started
+Personal portfolio built with Next.js 14 (App Router), React 18, TypeScript and Tailwind CSS.
 
-First, run the development server:
+Current version: **0.3.0**. See [CHANGELOG.md](CHANGELOG.md).
+
+## Structure
+
+The site is split into three tabs, each with its own URL:
+
+| Route | Content |
+|---|---|
+| `/` (Overview) | Hero, current role, featured certifications, stack and four selected projects |
+| `/projects` | AI & Data Science, Web & Product, design sketches and other projects |
+| `/experience` | Work experience, certifications, technologies and recommendations |
+
+The header (name, tabs and Contact) and the Contact block live in `app/layout.tsx`, so every route shows them. Old single-page links such as `/#projects` are redirected by `components/LegacyHashRedirect.tsx`.
+
+All content comes from `data/index.ts`. Private projects are listed without links, screenshots of internal systems or confidential details.
+
+## Design system
+
+- Dark-only zinc palette defined as CSS variables in `app/globals.css` and mapped in `tailwind.config.ts`.
+- One accent color (`--accent`, blue #60A5FA) used only for links, the focus ring and the active tab.
+- Inter for text and JetBrains Mono for metadata, both loaded with `next/font` (the build needs network access to fetch them).
+- No infinite animations; transitions are 150–200 ms and `prefers-reduced-motion` is respected.
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev     # development server on http://localhost:3000
+npm run build   # production build
+npm run start   # serve the production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Versioning and build info
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- The version lives in `package.json`; every product change gets a SemVer bump and a dated CHANGELOG entry. From v0.3.0 on, commit messages use `[vX.Y.Z] Summary`.
+- `next.config.mjs` exposes the version, build date and the first 7 characters of the commit (`VERCEL_GIT_COMMIT_SHA` on Vercel, `git` locally). The footer shows them under "Build" and marks local builds and uncommitted changes.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Publishing
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Production is deployed by Vercel from `main`. Changes go through a feature branch, are merged with `--no-ff` into `development` and then into `main`, and are pushed with `git push --atomic`, only after explicit approval.
