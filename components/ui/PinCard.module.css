@@ -1,0 +1,182 @@
+/*
+ * PinCard: "card goes backwards" hover effect (3D pin from v0.2.0), CSS only, sober palette.
+ * Everything is transform/opacity (no layout shift). Hover is tracked on the untransformed
+ * root, so the hit area never shrinks with the card. Keyboard focus never tilts the card.
+ */
+
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.tilt {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  border-radius: 0.75rem;
+}
+
+/* Decorative layer: hidden unless the device has a fine pointer and motion is allowed. */
+.decor {
+  display: none;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .tilt {
+    transform: perspective(1000px) rotateX(0deg) scale(1);
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 700ms ease;
+  }
+
+  .root:hover .tilt {
+    transform: perspective(1000px) rotateX(40deg) scale(0.8);
+    box-shadow: 0 8px 16px rgb(0 0 0 / 0.4);
+  }
+
+  .decor {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 500ms ease;
+  }
+
+  .root:hover .decor {
+    opacity: 1;
+  }
+
+  /* Floating title pill. */
+  .pill {
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    max-width: calc(100% - 2rem);
+    transform: translateX(-50%);
+    overflow: hidden;
+    padding: 0.25rem 1rem;
+    border: 1px solid #3f3f46;
+    border-radius: 9999px;
+    background: #111113;
+    color: #fafafa;
+    font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .pill::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 1.125rem;
+    width: calc(100% - 2.25rem);
+    height: 1px;
+    background: linear-gradient(to right, rgb(255 255 255 / 0), rgb(255 255 255 / 0.6), rgb(255 255 255 / 0));
+  }
+
+  /* Pin point at the bottom centre of the card. */
+  .pin {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    width: 0;
+    height: 0;
+  }
+
+  /* Vertical beam rising from the pin point (white to transparent). */
+  .beam,
+  .beamGlow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    height: 4rem;
+    background: linear-gradient(to bottom, rgb(255 255 255 / 0), rgb(255 255 255 / 0.7));
+    transition: height 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .beamGlow {
+    filter: blur(2px);
+  }
+
+  .root:hover .beam,
+  .root:hover .beamGlow {
+    height: 7rem;
+  }
+
+  .dot {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #fafafa;
+    box-shadow: 0 0 6px 1px rgb(255 255 255 / 0.5);
+  }
+
+  /* Flattened rings on the "floor" plane. */
+  .floor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    perspective: 1000px;
+  }
+
+  .plane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    transform: rotateX(70deg);
+  }
+
+  .ring {
+    position: absolute;
+    top: -5.625rem;
+    left: -5.625rem;
+    width: 11.25rem;
+    height: 11.25rem;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 0.12);
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  /* Rings only animate while the card is hovered. */
+  .root:hover .ring {
+    animation: pinRing 6s linear infinite;
+  }
+
+  .root:hover .ring:nth-child(2) {
+    animation-delay: -2s;
+  }
+
+  .root:hover .ring:nth-child(3) {
+    animation-delay: -4s;
+  }
+}
+
+@keyframes pinRing {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  35% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}

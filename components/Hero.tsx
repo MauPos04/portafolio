@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { FaArrowRight, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { socialMedia } from '@/data'
+import HeroGlobe from '@/components/ui/HeroGlobe'
 
 const socialIcons: Record<string, JSX.Element> = {
   GitHub: <FaGithub aria-hidden='true' />,
@@ -15,7 +16,8 @@ const Hero = () => {
         Mauricio Posada Palma
       </h1>
       <div aria-hidden='true' className='pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-grid-white/[0.035] [-webkit-mask-image:radial-gradient(ellipse_60%_85%_at_18%_35%,#000_20%,transparent_72%)] [mask-image:radial-gradient(ellipse_60%_85%_at_18%_35%,#000_20%,transparent_72%)]' />
-      <div className='relative z-10 mx-auto max-w-6xl px-4 pb-12 md:px-8 md:pb-14'>
+      <div className='relative z-10 mx-auto max-w-6xl px-4 pb-12 md:px-8 md:pb-14 lg:min-h-[440px] lg:pr-[504px]'>
+        <HeroGlobe className='absolute right-8 top-0' />
         <p className='mt-3.5 font-mono text-xs font-medium uppercase tracking-[0.08em] text-muted-foreground'>
           Applied AI · Software Engineering · Data Science
         </p>
