@@ -2,7 +2,7 @@
 
 Personal portfolio built with Next.js 14 (App Router), React 18, TypeScript and Tailwind CSS.
 
-Current version: **0.4.1**. See [CHANGELOG.md](CHANGELOG.md).
+Current version: **0.4.2**. See [CHANGELOG.md](CHANGELOG.md).
 
 ## Structure
 
@@ -27,15 +27,16 @@ All content comes from `data/index.ts`. Private projects are listed without link
 
 ## Motion
 
-Three effects from 0.2.0 are kept in the same palette. None of them is part of the initial bundle:
+Two effects from 0.2.0 are kept in the same palette. Neither is part of the initial bundle:
 
 | Effect | Where | Loading and limits |
 |---|---|---|
 | Spinning globe with animated arcs between cities | Overview hero: `components/ui/HeroGlobe.tsx`, `components/ui/Globe.tsx`, countries in `data/globe.json` | Desktop only (≥1024 px). Mounted with `next/dynamic` once the page is idle and the hero is in view; paused off screen; static arcs and no rotation with reduced motion |
-| 3D pin tilt on hover | Project cards: `components/ui/PinCard.tsx` and `PinCard.module.css` | CSS only; mouse or trackpad pointers with motion allowed |
 | Confetti on copy, recolored to the site blues, white and zinc | Copy email button: `components/ui/ConfettiBurst.tsx`, animation in `data/confetti.json` | `lottie-react` and the animation load on the first successful copy; skipped with reduced motion |
 
 Copy email uses the async Clipboard API and falls back to `document.execCommand('copy')` when the browser denies it, as embedded and in-app browsers do.
+
+Project cards stay flat: the 3D pin hover was brought back in 0.4.0 and removed in 0.4.2 because it moved the card's text and links away while hovering.
 
 ## Scripts
 
