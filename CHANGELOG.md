@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2 — 2026-11-04
+
+- Remove the 3D pin hover from project cards. Tilting the card back made its text and links recede exactly when you hover to read or click them, and it was the least sober of the three effects. Cards are flat again, as in 0.3.0; the hero globe and the copy confetti stay.
+
 ## 0.4.1 — 2026-11-04
 
 - Copy email falls back to a selection-based copy (`document.execCommand('copy')`) when the browser denies the async Clipboard API, as embedded and in-app browsers do ("Write permission denied"). Before, those browsers showed "Copy failed" and no confetti.
